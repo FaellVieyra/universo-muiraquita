@@ -1,0 +1,10 @@
+ARQUIVOS DO SITE UNIVERSO MUIRAQUITÃ
+
+Envie para a raiz do repositório no GitHub:
+- index.html
+- styles.css
+- CNAME
+- .nojekyll
+- pasta assets completa
+
+Depois ative o GitHub Pages em Settings > Pages > Deploy from a branch > main > /(root).
