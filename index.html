@@ -50,7 +50,7 @@ a{color:inherit}
 /* ---------- tipografia ---------- */
 h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;
   letter-spacing:.01em;line-height:.94;margin:0}
-h1{font-size:clamp(46px,13.5vw,104px)}
+h1{font-size:clamp(40px,11vw,82px)}
 h2{font-size:clamp(30px,8.4vw,58px)}
 h3{font-size:clamp(19px,5vw,26px);line-height:1.05}
 p{margin:0 0 1.05em}
@@ -59,7 +59,7 @@ p{margin:0 0 1.05em}
 .grande{font-size:clamp(18px,4.6vw,21px);line-height:1.55}
 .silencio{color:var(--poeira)}
 
-section{padding-block:clamp(64px,15vw,120px);position:relative;padding-inline:max(var(--pad),calc((100% - 1120px)/2))}
+section{scroll-margin-top:78px;padding-block:clamp(64px,15vw,120px);position:relative;padding-inline:max(var(--pad),calc((100% - 1120px)/2))}
 section > p,section > .grande,section > .silencio,section > blockquote{max-width:64ch}
 section > h2{max-width:20ch}
 .regra{height:1px;background:var(--linha);border:0;margin:0}
@@ -100,10 +100,28 @@ header nav{display:none}
 
 /* ---------- hero ---------- */
 .hero{
-  min-height:92svh;display:flex;flex-direction:column;justify-content:flex-end;
-  padding-top:clamp(48px,14vw,90px);padding-bottom:clamp(40px,10vw,72px);
-  overflow:hidden;
+  min-height:100svh;display:flex;flex-direction:column;justify-content:center;
+  padding-top:clamp(24px,7vw,60px);padding-bottom:clamp(34px,9vw,64px);
+  overflow:hidden;gap:clamp(20px,5vw,40px);
 }
+@media(min-width:900px){
+  .hero{flex-direction:row-reverse;align-items:center;gap:clamp(40px,6vw,90px)}
+  .hero-livro{flex:0 0 42%}
+  .hero-texto{flex:1}
+}
+.hero-livro{position:relative;display:flex;justify-content:center;align-items:center}
+.hero-livro::before{
+  content:"";position:absolute;width:78%;aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle,rgba(63,169,122,.42),rgba(63,169,122,0) 66%);
+  filter:blur(22px);animation:pulsa 5.5s ease-in-out infinite;
+}
+@keyframes pulsa{0%,100%{transform:scale(1);opacity:.85}50%{transform:scale(1.09);opacity:1}}
+@media (prefers-reduced-motion:reduce){.hero-livro::before{animation:none}}
+.hero-livro img{
+  position:relative;width:min(70vw,330px);
+  filter:drop-shadow(0 30px 55px rgba(0,0,0,.75));
+}
+@media(min-width:900px){.hero-livro img{width:min(34vw,420px)}}
 .hero::before{
   content:"";position:absolute;inset:0;z-index:0;
   background:
@@ -117,7 +135,7 @@ header nav{display:none}
   background-size:4px 4px;
 }
 .hero>*{position:relative;z-index:1}
-.hero-logo{width:min(78vw,430px);margin:0 0 26px;filter:drop-shadow(0 6px 30px rgba(0,0,0,.6))}
+.hero-logo{width:min(56vw,290px);margin:0 0 20px;filter:drop-shadow(0 6px 30px rgba(0,0,0,.6))}
 .hero h1{margin:0 0 18px}
 .hero h1 em{font-style:normal;color:var(--caco-luz)}
 .hero p{max-width:34ch;font-size:clamp(17px,4.4vw,20px);color:var(--areia);margin-bottom:26px}
@@ -146,6 +164,13 @@ header nav{display:none}
 .pagina p+p{text-indent:1.3em}
 .pagina .folio{text-align:center;font-size:13px;color:#8A7A68;margin:22px 0 0}
 .pagina-legenda{text-align:center;max-width:34ch;margin:26px auto 0;font-size:14px;color:var(--poeira)}
+
+/* ---------- capa ---------- */
+.capa-bloco{display:grid;gap:clamp(24px,6vw,50px);align-items:center;margin-top:34px}
+@media(min-width:820px){.capa-bloco{grid-template-columns:minmax(0,1fr) 340px}}
+.capa-moldura{position:relative;justify-self:center}
+.capa-moldura img{width:min(74vw,340px);border-radius:5px;box-shadow:0 26px 60px rgba(0,0,0,.6)}
+.capa-legenda{text-align:center;font-size:13px;color:var(--poeira);margin:14px 0 0}
 
 /* ---------- fatos ---------- */
 .fatos{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--linha);
@@ -340,13 +365,18 @@ footer a:hover{color:var(--caco-luz)}
 
 <!-- HERO -->
 <section class="hero" id="inicio">
-  <img class="hero-logo" src="logotipo.webp" alt="Muiraquitã">
-  <div class="selo"><b>Livro 1</b> de quatro · Oeste da Bahia</div>
-  <h1>Uma pedra <em>verde</em> caiu perto da cidade.</h1>
-  <p class="grande">E a única pessoa que percebeu o defeito foi a menina que conserta celular na banca do mercado.</p>
-  <div class="hero-acoes">
-    <a class="btn btn-cheio btn-bloco" href="https://wa.me/5577997026139?text=Ol%C3%A1%21%20Quero%20ser%20avisado%20quando%20a%20pr%C3%A9-venda%20do%20Muiraquit%C3%A3%20abrir." target="_blank" rel="noreferrer">Avise-me quando sair</a>
-    <a class="btn btn-vazio btn-bloco" href="#trecho">Ler as primeiras linhas</a>
+  <div class="hero-livro">
+    <img src="livro-mockup.webp" alt="O livro Muiraquitã, primeira edição" fetchpriority="high">
+  </div>
+  <div class="hero-texto">
+    <img class="hero-logo" src="logotipo.webp" alt="Muiraquitã">
+    <div class="selo"><b>Livro 1</b> de quatro · Oeste da Bahia</div>
+    <h1>Uma pedra <em>verde</em> caiu perto da cidade.</h1>
+    <p class="grande">E quem percebeu o defeito foi a menina que conserta celular na banca do mercado.</p>
+    <div class="hero-acoes">
+      <a class="btn btn-cheio btn-bloco" href="https://wa.me/5577997026139?text=Ol%C3%A1%21%20Quero%20ser%20avisado%20quando%20a%20pr%C3%A9-venda%20do%20Muiraquit%C3%A3%20abrir." target="_blank" rel="noreferrer">Avise-me quando sair</a>
+      <a class="btn btn-vazio btn-bloco" href="#trecho">Ler as primeiras linhas</a>
+    </div>
   </div>
 </section>
 
@@ -369,7 +399,15 @@ footer a:hover{color:var(--caco-luz)}
   <p class="olho">O livro</p>
   <h2>Ela vence pelo ofício,<br>não por mágica.</h2>
   <p class="grande">Marlui Dantas tem dezessete anos, mora com a avó e conserta aparelho numa banca de três metros quadrados na lateral do mercado. Quando uma coisa cai perto de Cotegipe e a avó desaparece, a cidade inteira decide que a culpa é dela.</p>
-  <p class="silencio">O que a Marlui tem não é dom: é chave de fenda, teimosia e o conhecimento de cada atalho, cada dívida e cada fofoca da própria cidade. E é com isso que ela vai atrás — porque quem conserta aprende cedo a procurar o defeito onde ninguém olha.</p>
+  <div class="capa-bloco">
+    <div>
+      <p class="silencio">O que a Marlui tem não é dom: é chave de fenda, teimosia e o conhecimento de cada atalho, cada dívida e cada fofoca da própria cidade. E é com isso que ela vai atrás — porque quem conserta aprende cedo a procurar o defeito onde ninguém olha.</p>
+    </div>
+    <figure class="capa-moldura" style="margin:0">
+      <img src="capa-sem-palavras.png" alt="Capa do livro: mãos segurando a pedra verde" loading="lazy">
+      <figcaption class="capa-legenda">Capa da primeira edição · 14 × 21 cm</figcaption>
+    </figure>
+  </div>
   <div class="fatos">
     <div><b>4</b><span>livros na série</span></div>
     <div><b>30</b><span>capítulos</span></div>
