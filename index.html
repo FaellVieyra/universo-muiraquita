@@ -300,42 +300,6 @@ footer a:hover{color:var(--caco-luz)}
 .copy{margin-top:26px;font-size:13px;color:var(--poeira)}
 
 
-/* ---------- apadrinhar ---------- */
-.padrinho{background:linear-gradient(180deg,#171310 0%,var(--breu) 100%)}
-.dedic{background:var(--areia-2);color:#17130F;border-radius:4px;max-width:400px;margin:30px auto 0;
-  padding:clamp(26px,7vw,40px);font-family:var(--livro);text-align:center;
-  box-shadow:0 22px 50px rgba(0,0,0,.5)}
-.dedic .rot{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#8A7A68;
-  font-family:var(--corpo);font-weight:600;margin:0 0 16px}
-.dedic .frase{font-size:clamp(17px,4.6vw,20px);line-height:1.5;margin:0 0 8px}
-.dedic .nome{font-size:clamp(19px,5.2vw,23px);font-style:italic;border-bottom:1px solid #C7B79F;
-  display:inline-block;padding:0 14px 3px;margin:6px 0 14px;color:#1F5E43}
-.dedic .escola{font-size:14px;color:#5A4C3E;margin:0}
-
-.contador{border:1px solid var(--linha);border-radius:14px;padding:22px;margin:30px 0 24px;background:var(--breu-2)}
-.contador .num{display:flex;align-items:baseline;gap:10px;margin-bottom:12px}
-.contador .num b{font-family:var(--display);font-size:clamp(40px,11vw,64px);color:var(--caco-luz);line-height:.9}
-.contador .num span{font-size:15px;color:var(--poeira)}
-.trilho{height:11px;border-radius:999px;background:rgba(232,220,200,.12);overflow:hidden}
-.trilho i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--caco),var(--caco-luz))}
-.contador small{display:block;margin-top:11px;font-size:13.5px;color:var(--poeira)}
-
-.destinos{display:grid;gap:9px;margin:24px 0 26px}
-.destino{display:flex;gap:13px;align-items:center;padding:14px 16px;border:1px solid var(--linha);
-  border-radius:11px;font-size:15px}
-.destino b{font-family:var(--display);font-size:20px;color:var(--caco-luz);min-width:34px;text-align:center}
-.destino small{display:block;color:var(--poeira);font-size:13px}
-
-.contas{width:100%;border-collapse:collapse;margin:24px 0 8px;font-size:15px}
-.contas td{padding:13px 0;border-bottom:1px solid var(--linha)}
-.contas td:last-child{text-align:right;font-weight:700;white-space:nowrap}
-.contas tr:last-child td{border-bottom:0;color:var(--caco-luz);font-weight:700}
-.editar{color:var(--barro-cl);font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:700}
-
-.kit{border:1px solid var(--caco);background:rgba(31,94,67,.16);border-radius:14px;padding:22px;margin-top:26px}
-.kit h3{margin-bottom:9px}
-.kit p{font-size:15.5px;color:var(--poeira)}
-
 /* ---------- barra fixa ---------- */
 .barra{
   position:fixed;left:0;right:0;bottom:0;z-index:70;display:flex;gap:9px;
@@ -355,7 +319,6 @@ footer a:hover{color:var(--caco-luz)}
     <a href="#universo">O sertão</a>
     <a href="#gente">A gente</a>
     <a href="#escolas">Escolas</a>
-    <a href="#estante">Doar</a>
     <a href="#apoio">Apoiar</a>
   </nav>
   <a class="topo-cta" href="https://wa.me/5577997026139?text=Ol%C3%A1%21%20Quero%20ser%20avisado%20quando%20a%20pr%C3%A9-venda%20do%20Muiraquit%C3%A3%20abrir." target="_blank" rel="noreferrer">Avise-me</a>
@@ -482,56 +445,11 @@ footer a:hover{color:var(--caco-luz)}
     <li>Roteiro pedagógico pronto para o professor</li>
     <li>Atividades de leitura, escrita e desenho</li>
     <li>Exemplares para a biblioteca da escola</li>
+    <li>Preço de custo para compra pela escola ou pela prefeitura</li>
   </ul>
   <a class="btn btn-verde btn-bloco" href="https://wa.me/5577997026139?text=Ol%C3%A1%21%20Sou%20de%20uma%20escola%20e%20quero%20saber%20sobre%20o%20projeto%20Muiraquit%C3%A3%20nas%20escolas." target="_blank" rel="noreferrer">Levar para uma escola</a>
-  <a class="btn btn-vazio btn-bloco" style="margin-top:10px" href="#estante">Ou pague um exemplar para uma escola</a>
 </section>
 
-
-<!-- APADRINHAR -->
-<section class="padrinho" id="estante">
-  <p class="olho">Um livro numa estante</p>
-  <h2>Bote o seu nome dentro<br>de um exemplar.</h2>
-  <p class="grande">Você paga um livro. O livro vai para a biblioteca de uma escola pública do Oeste da Bahia. E o seu nome fica escrito na primeira página, para quem pegar aquele exemplar ler.</p>
-
-  <div class="dedic">
-    <p class="rot">Primeira página do exemplar doado</p>
-    <p class="frase">Este exemplar chegou até aqui porque</p>
-    <p class="nome">o seu nome</p>
-    <p class="frase">quis que alguém daqui pudesse ler.</p>
-    <p class="escola">Biblioteca da escola · Cotegipe, Bahia</p>
-  </div>
-
-  <div class="contador">
-    <div class="num"><b><span id="doados">0</span>/40</b><span>exemplares já pagos<br>para bibliotecas escolares</span></div>
-    <div class="trilho"><i id="barra-doacao" style="width:2%"></i></div>
-    <small>Meta: quarenta exemplares na primeira leva. <span class="editar">← trocar o número quando entrar doação</span></small>
-  </div>
-
-  <p class="olho">Para onde vão</p>
-  <div class="destinos">
-    <div class="destino"><b>20</b><div>Colégio estadual de ensino médio de Cotegipe<small>É o único do município</small></div></div>
-    <div class="destino"><b>10</b><div>Escolas municipais do Centro e das vilas<small>Fundamental II</small></div></div>
-    <div class="destino"><b>10</b><div>Escolas de povoados e municípios vizinhos<small>Por ordem de pedido</small></div></div>
-  </div>
-
-  <p class="olho">Onde vai o dinheiro</p>
-  <table class="contas">
-    <tr><td>Impressão de um exemplar</td><td>R$ —</td></tr>
-    <tr><td>Entrega na escola</td><td>R$ —</td></tr>
-    <tr><td>Custo de um livro doado</td><td>R$ —</td></tr>
-  </table>
-  <p class="silencio" style="font-size:14px"><span class="editar">← preencher quando a gráfica fechar o orçamento</span> · Nada disso vira lucro. Este é um projeto independente e sem intermediário.</p>
-
-  <a class="btn btn-verde btn-bloco" style="margin-top:20px" href="https://wa.me/5577997026139?text=Ol%C3%A1%21%20Quero%20apadrinhar%20um%20exemplar%20do%20Muiraquit%C3%A3%20para%20a%20biblioteca%20de%20uma%20escola." target="_blank" rel="noreferrer">Quero pagar um exemplar</a>
-  <p class="silencio" style="margin-top:12px;font-size:14.5px">Pode ser um livro, pode ser cinco. Você escolhe se o nome aparece ou se fica anônimo.</p>
-
-  <div class="kit">
-    <h3>É professor ou coordenador?</h3>
-    <p>Tem um material de uma página com a sinopse, a faixa etária, os temas do livro e sugestões de atividade — feito para você mostrar na coordenação sem precisar explicar nada.</p>
-    <a class="btn btn-vazio btn-bloco" href="https://wa.me/5577997026139?text=Ol%C3%A1%21%20Sou%20professor(a)%20e%20quero%20receber%20o%20material%20pedag%C3%B3gico%20do%20Muiraquit%C3%A3." target="_blank" rel="noreferrer">Receber o material do professor</a>
-  </div>
-</section>
 
 <!-- ETAPAS -->
 <section id="pre-venda">
@@ -552,9 +470,9 @@ footer a:hover{color:var(--caco-luz)}
 <section class="apoio" id="apoio">
   <p class="olho">Apoio voluntário</p>
   <h2>Quem quiser empurrar, empurra agora.</h2>
-  <p class="grande">Enquanto o preço não fecha, qualquer quantia ajuda a pagar a impressão dos primeiros exemplares.</p>
+  <p class="grande">Enquanto o preço não fecha, qualquer quantia ajuda a pagar a impressão dos primeiros exemplares — e parte deles vai para bibliotecas de escola daqui.</p>
 
-  <div class="aviso"><strong>Leia antes:</strong> este apoio é voluntário e <strong>não reserva nem garante um exemplar</strong>. A pré-venda vai ser aberta em separado, depois do orçamento.</div>
+  <div class="aviso"><strong>Leia antes:</strong> este apoio é voluntário e <strong>não reserva nem garante um exemplar</strong>. Não existe edição especial, brinde nem contrapartida — é um projeto independente, feito por uma pessoa só. A pré-venda vai ser aberta em separado, depois do orçamento.</div>
 
   <div class="pix">
     <img src="pix-muiraquita.jpg" alt="QR Code do Pix para apoiar o projeto" loading="lazy">
@@ -626,8 +544,8 @@ footer a:hover{color:var(--caco-luz)}
     <div class="resp"><p>O texto está pronto e o miolo está diagramado. A data depende do orçamento da gráfica — e é por isso que existe a lista de aviso: quando fechar, você recebe uma mensagem.</p></div>
   </details>
   <details>
-    <summary>Como funciona a doação para escolas?</summary>
-    <div class="resp"><p>Você paga o custo de um exemplar, o livro entra na primeira leva da impressão e vai direto para a biblioteca de uma escola pública — com o seu nome escrito na primeira página, se você quiser. Cada entrega é registrada e mandada de volta para quem doou.</p></div>
+    <summary>O apoio garante um livro para mim?</summary>
+    <div class="resp"><p>Não. Apoio é apoio — ajuda a pagar a impressão. A pré-venda vai ser aberta em separado, com preço e reserva. Quem apoiar agora vai ser o primeiro a saber quando ela abrir.</p></div>
   </details>
   <details>
     <summary>Como faço para vender na minha loja ou levar para a minha escola?</summary>
@@ -656,7 +574,6 @@ footer a:hover{color:var(--caco-luz)}
       <a href="#livro">O livro</a>
       <a href="#universo">O sertão</a>
       <a href="#escolas">Nas escolas</a>
-      <a href="#estante">Doar um exemplar</a>
     </div>
     <div>
       <h3>Falar comigo</h3>
@@ -674,7 +591,7 @@ footer a:hover{color:var(--caco-luz)}
 
 <div class="barra">
   <a class="btn btn-cheio" href="https://wa.me/5577997026139?text=Ol%C3%A1%21%20Quero%20ser%20avisado%20quando%20a%20pr%C3%A9-venda%20do%20Muiraquit%C3%A3%20abrir." target="_blank" rel="noreferrer">Avise-me do lançamento</a>
-  <a class="btn btn-vazio" href="#estante">Doar livro</a>
+  <a class="btn btn-vazio" href="#apoio">Apoiar</a>
 </div>
 
 <script>
