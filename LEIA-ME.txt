@@ -5,6 +5,6 @@ Envie para a raiz do repositório no GitHub:
 - styles.css
 - CNAME
 - .nojekyll
-- pasta assets completa
+- todas as imagens .webp
 
 Depois ative o GitHub Pages em Settings > Pages > Deploy from a branch > main > /(root).

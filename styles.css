@@ -38,3 +38,35 @@ footer a{font-size:13px;line-height:1.45}footer .footer-brand p{font-family:Aria
 @media(max-width:650px){.eyebrow{font-size:12px;letter-spacing:.18em}.series-kicker{font-size:11px;line-height:1.5}.site-header nav a{font-size:10px}.book-copy>p,.world-copy>p:not(.eyebrow),.section-heading>p:last-child,.schools-copy>p:not(.eyebrow),.presale-copy>p:not(.eyebrow),.support-intro>p:not(.eyebrow),.author>div>p:last-child,.excerpt-intro>p:last-child{font-size:16px;line-height:1.65}.character-card p{font-size:15px}.payment-help summary,.faq-list summary{font-size:16px;line-height:1.45}.payment-help p,.faq-list p{font-size:16px;line-height:1.65}.support-form label{font-size:11px;line-height:1.4}.support-form label small{display:block;margin:4px 0 0;font-size:12px;line-height:1.4}.support-form input,.support-form select{font-size:16px;min-height:50px}.support-form .check{font-size:14px;line-height:1.5}.pix-card small{font-size:13px}.series-stats span{font-size:11px;line-height:1.4}footer a{font-size:14px}.copyright{font-size:12px}.book-page{font-size:15px}}
 .school-actions{display:grid;gap:14px;margin-top:30px}.school-download{width:100%;background:var(--jade);color:#0b1710;text-align:center}.school-download:hover{background:#86d59c}.school-secondary{display:block;padding:14px 18px;text-align:center;border:1px solid var(--line);font-size:12px;text-transform:uppercase;letter-spacing:.1em}.school-note{margin-top:25px!important;padding-top:20px;border-top:1px solid var(--line);font-size:13px!important;color:#8e958f!important}.school-actions .text-link{margin-top:5px}
 @media(max-width:650px){.school-download,.school-secondary{font-size:11px;line-height:1.4;padding:14px 12px}.school-note{font-size:14px!important;line-height:1.55!important}}
+
+/* Portal do educador: os downloads precisam ser evidentes, sobretudo no celular. */
+.educator-portal{margin-top:34px;border:1px solid rgba(105,189,129,.42);background:linear-gradient(145deg,rgba(105,189,129,.1),rgba(238,231,216,.035));padding:26px}
+.educator-heading{padding-bottom:20px;border-bottom:1px solid var(--line)}
+.educator-heading>span{display:inline-block;margin-bottom:10px;color:var(--jade);font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+.educator-heading h3{margin:0 0 9px;font:400 30px/1.15 Georgia,serif;color:var(--paper)}
+.educator-heading p{margin:0;color:#aeb6af;font:15px/1.55 Arial,Helvetica,sans-serif}
+.educator-cards{display:grid;grid-template-columns:1fr;gap:16px;margin-top:20px}
+.educator-card{display:block;border:1px solid var(--line);background:#0e120f;padding:22px}
+.educator-card.featured{border-color:var(--jade);box-shadow:inset 4px 0 0 var(--jade);background:linear-gradient(135deg,rgba(105,189,129,.13),#0e120f 52%)}
+.educator-card-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
+.educator-card-top span{color:var(--jade);font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.educator-card-top b{padding:6px 9px;border:1px solid var(--line);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#c8cfc9}
+.educator-card h4{margin:0 0 10px;font:400 24px/1.2 Georgia,serif;color:#f4efe3}
+.educator-card p{margin:0;color:#bfc5bf;font:15px/1.6 Arial,Helvetica,sans-serif}
+.educator-tags{display:flex;flex-wrap:wrap;gap:7px;margin:17px 0}
+.educator-tags span{border:1px solid rgba(105,189,129,.3);padding:6px 9px;color:#b9d9c2;font-size:10px;letter-spacing:.05em;text-transform:uppercase}
+.educator-buttons{display:grid!important;grid-template-columns:1fr 1fr!important;gap:10px!important;margin-top:16px!important}
+.educator-button{display:flex!important;min-height:50px!important;align-items:center!important;justify-content:center!important;padding:12px 14px!important;text-align:center!important;font-size:11px!important;font-weight:800!important;line-height:1.3!important;letter-spacing:.1em!important;text-transform:uppercase!important}
+.educator-button.primary{background:var(--jade)!important;color:#08110b!important;border:1px solid var(--jade)!important}
+.educator-button.secondary{background:transparent!important;color:var(--paper)!important;border:1px solid rgba(238,231,216,.38)!important}
+.educator-contact{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:20px!important;margin-top:18px!important;padding:18px 20px!important;background:var(--paper)!important;color:#111712!important}
+.educator-contact span{font-size:12px;line-height:1.4}.educator-contact strong{font-size:12px;line-height:1.4;text-align:right}
+.school-note{margin-top:26px!important}
+@media(max-width:650px){
+  .schools{padding-left:18px;padding-right:18px}.schools-art{height:340px;margin:0 -18px}.schools-copy h2{font-size:46px}.schools-copy>p:not(.eyebrow){font-size:17px;line-height:1.7}.schools li{padding:17px 0;font-size:14px;line-height:1.5}
+  .educator-portal{margin:32px -4px 0;padding:18px 14px}.educator-heading>span{font-size:11px;line-height:1.45}.educator-heading h3{font-size:28px}.educator-heading p{font-size:15px;line-height:1.6}
+  .educator-card{padding:20px 16px}.educator-card-top{align-items:flex-start}.educator-card-top span{font-size:11px;line-height:1.35}.educator-card h4{font-size:25px}.educator-card p{font-size:16px;line-height:1.65}.educator-tags span{font-size:10px}
+  .educator-buttons{grid-template-columns:1fr!important}.educator-button{min-height:54px!important;font-size:12px!important}
+  .educator-contact{align-items:flex-start!important;flex-direction:column!important;gap:7px!important;padding:18px!important}.educator-contact span,.educator-contact strong{font-size:14px;text-align:left}
+  .school-note{font-size:15px!important;line-height:1.65!important}
+}
