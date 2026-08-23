@@ -59,13 +59,15 @@ p{margin:0 0 1.05em}
 .grande{font-size:clamp(18px,4.6vw,21px);line-height:1.55}
 .silencio{color:var(--poeira)}
 
-section{padding:clamp(64px,15vw,120px) var(--pad);position:relative}
+section{padding-block:clamp(64px,15vw,120px);position:relative;padding-inline:max(var(--pad),calc((100% - 1120px)/2))}
+section > p,section > .grande,section > .silencio,section > blockquote{max-width:64ch}
+section > h2{max-width:20ch}
 .regra{height:1px;background:var(--linha);border:0;margin:0}
 
 /* ---------- topo ---------- */
 header{
   position:sticky;top:0;z-index:60;display:flex;align-items:center;justify-content:space-between;
-  gap:12px;padding:12px var(--pad);
+  gap:12px;padding:12px max(var(--pad),calc((100% - 1120px)/2));
   background:rgba(16,14,12,.86);backdrop-filter:blur(12px);
   border-bottom:1px solid var(--linha);
 }
@@ -178,9 +180,9 @@ header nav{display:none}
 .pessoa p{margin:0;font-size:15.5px;color:var(--poeira)}
 
 /* ---------- objetos ---------- */
-.objetos{display:flex;gap:12px;overflow-x:auto;padding:30px 0 12px;margin:0 calc(var(--pad)*-1);
-  padding-left:var(--pad);padding-right:var(--pad);scroll-snap-type:x mandatory;
+.objetos{display:flex;gap:12px;overflow-x:auto;padding:30px 0 12px;scroll-snap-type:x mandatory;
   -webkit-overflow-scrolling:touch;scrollbar-width:none}
+@media(max-width:899px){.objetos{margin-inline:calc(var(--pad)*-1);padding-inline:var(--pad)}}
 .objetos::-webkit-scrollbar{display:none}
 .objetos figure{margin:0;flex:0 0 132px;scroll-snap-align:start;text-align:center}
 .objetos .moldura{background:var(--areia-2);border-radius:10px;padding:14px;aspect-ratio:1;
@@ -210,10 +212,11 @@ header nav{display:none}
 .aviso{border:1px solid var(--barro);background:rgba(140,58,33,.14);border-radius:11px;
   padding:17px 18px;font-size:15px;margin:0 0 26px}
 .aviso strong{color:var(--barro-cl)}
-.pix{display:grid;gap:20px;align-items:center;border:1px solid var(--linha);border-radius:14px;
-  padding:22px;background:var(--breu-2)}
-@media(min-width:640px){.pix{grid-template-columns:170px 1fr}}
-.pix img{border-radius:9px;background:#fff;padding:9px;margin:0 auto;max-width:220px}
+.pix{display:grid;gap:24px;align-items:center;border:1px solid var(--linha);border-radius:14px;
+  padding:24px;background:var(--breu-2)}
+@media(min-width:640px){.pix{grid-template-columns:210px minmax(0,1fr);gap:32px}}
+.pix>div{min-width:0}
+.pix img{width:100%;max-width:220px;border-radius:9px;background:#fff;padding:9px;margin:0 auto}
 .pix .rot{font-size:11.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--poeira)}
 .pix .chave{font-family:var(--display);font-size:clamp(23px,6.2vw,30px);margin:5px 0 4px;letter-spacing:.02em}
 .pix .dono{font-size:14px;color:var(--poeira);margin:0 0 15px;line-height:1.45}
@@ -260,7 +263,7 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
   color:var(--barro-cl);margin-top:30px;text-transform:uppercase}
 
 /* ---------- rodapé ---------- */
-footer{padding:clamp(50px,11vw,80px) var(--pad) 130px;border-top:1px solid var(--linha)}
+footer{padding:clamp(50px,11vw,80px) max(var(--pad),calc((100% - 1120px)/2)) 130px;border-top:1px solid var(--linha)}
 footer img{height:30px;margin-bottom:16px}
 .rodape-cols{display:grid;gap:32px;margin-top:34px}
 @media(min-width:700px){.rodape-cols{grid-template-columns:repeat(3,1fr)}}
@@ -271,10 +274,47 @@ footer a:hover{color:var(--caco-luz)}
 .dominio b{font-family:var(--display);font-size:clamp(21px,5.6vw,30px);display:block;margin-top:5px}
 .copy{margin-top:26px;font-size:13px;color:var(--poeira)}
 
+
+/* ---------- apadrinhar ---------- */
+.padrinho{background:linear-gradient(180deg,#171310 0%,var(--breu) 100%)}
+.dedic{background:var(--areia-2);color:#17130F;border-radius:4px;max-width:400px;margin:30px auto 0;
+  padding:clamp(26px,7vw,40px);font-family:var(--livro);text-align:center;
+  box-shadow:0 22px 50px rgba(0,0,0,.5)}
+.dedic .rot{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#8A7A68;
+  font-family:var(--corpo);font-weight:600;margin:0 0 16px}
+.dedic .frase{font-size:clamp(17px,4.6vw,20px);line-height:1.5;margin:0 0 8px}
+.dedic .nome{font-size:clamp(19px,5.2vw,23px);font-style:italic;border-bottom:1px solid #C7B79F;
+  display:inline-block;padding:0 14px 3px;margin:6px 0 14px;color:#1F5E43}
+.dedic .escola{font-size:14px;color:#5A4C3E;margin:0}
+
+.contador{border:1px solid var(--linha);border-radius:14px;padding:22px;margin:30px 0 24px;background:var(--breu-2)}
+.contador .num{display:flex;align-items:baseline;gap:10px;margin-bottom:12px}
+.contador .num b{font-family:var(--display);font-size:clamp(40px,11vw,64px);color:var(--caco-luz);line-height:.9}
+.contador .num span{font-size:15px;color:var(--poeira)}
+.trilho{height:11px;border-radius:999px;background:rgba(232,220,200,.12);overflow:hidden}
+.trilho i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--caco),var(--caco-luz))}
+.contador small{display:block;margin-top:11px;font-size:13.5px;color:var(--poeira)}
+
+.destinos{display:grid;gap:9px;margin:24px 0 26px}
+.destino{display:flex;gap:13px;align-items:center;padding:14px 16px;border:1px solid var(--linha);
+  border-radius:11px;font-size:15px}
+.destino b{font-family:var(--display);font-size:20px;color:var(--caco-luz);min-width:34px;text-align:center}
+.destino small{display:block;color:var(--poeira);font-size:13px}
+
+.contas{width:100%;border-collapse:collapse;margin:24px 0 8px;font-size:15px}
+.contas td{padding:13px 0;border-bottom:1px solid var(--linha)}
+.contas td:last-child{text-align:right;font-weight:700;white-space:nowrap}
+.contas tr:last-child td{border-bottom:0;color:var(--caco-luz);font-weight:700}
+.editar{color:var(--barro-cl);font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:700}
+
+.kit{border:1px solid var(--caco);background:rgba(31,94,67,.16);border-radius:14px;padding:22px;margin-top:26px}
+.kit h3{margin-bottom:9px}
+.kit p{font-size:15.5px;color:var(--poeira)}
+
 /* ---------- barra fixa ---------- */
 .barra{
   position:fixed;left:0;right:0;bottom:0;z-index:70;display:flex;gap:9px;
-  padding:11px var(--pad) calc(11px + env(safe-area-inset-bottom));
+  padding:11px max(var(--pad),calc((100% - 1120px)/2)) calc(11px + env(safe-area-inset-bottom));
   background:rgba(16,14,12,.94);backdrop-filter:blur(14px);border-top:1px solid var(--linha);
 }
 .barra .btn{flex:1;padding:15px 12px;font-size:14px;min-height:52px}
@@ -290,6 +330,7 @@ footer a:hover{color:var(--caco-luz)}
     <a href="#universo">O sertão</a>
     <a href="#gente">A gente</a>
     <a href="#escolas">Escolas</a>
+    <a href="#estante">Doar</a>
     <a href="#apoio">Apoiar</a>
   </nav>
   <a class="topo-cta" href="https://wa.me/5577997026139?text=Ol%C3%A1%21%20Quero%20ser%20avisado%20quando%20a%20pr%C3%A9-venda%20do%20Muiraquit%C3%A3%20abrir." target="_blank" rel="noreferrer">Avise-me</a>
@@ -405,6 +446,53 @@ footer a:hover{color:var(--caco-luz)}
     <li>Exemplares para a biblioteca da escola</li>
   </ul>
   <a class="btn btn-verde btn-bloco" href="https://wa.me/5577997026139?text=Ol%C3%A1%21%20Sou%20de%20uma%20escola%20e%20quero%20saber%20sobre%20o%20projeto%20Muiraquit%C3%A3%20nas%20escolas." target="_blank" rel="noreferrer">Levar para uma escola</a>
+  <a class="btn btn-vazio btn-bloco" style="margin-top:10px" href="#estante">Ou pague um exemplar para uma escola</a>
+</section>
+
+
+<!-- APADRINHAR -->
+<section class="padrinho" id="estante">
+  <p class="olho">Um livro numa estante</p>
+  <h2>Bote o seu nome dentro<br>de um exemplar.</h2>
+  <p class="grande">Você paga um livro. O livro vai para a biblioteca de uma escola pública do Oeste da Bahia. E o seu nome fica escrito na primeira página, para quem pegar aquele exemplar ler.</p>
+
+  <div class="dedic">
+    <p class="rot">Primeira página do exemplar doado</p>
+    <p class="frase">Este exemplar chegou até aqui porque</p>
+    <p class="nome">o seu nome</p>
+    <p class="frase">quis que alguém daqui pudesse ler.</p>
+    <p class="escola">Biblioteca da escola · Cotegipe, Bahia</p>
+  </div>
+
+  <div class="contador">
+    <div class="num"><b><span id="doados">0</span>/40</b><span>exemplares já pagos<br>para bibliotecas escolares</span></div>
+    <div class="trilho"><i id="barra-doacao" style="width:2%"></i></div>
+    <small>Meta: quarenta exemplares na primeira leva. <span class="editar">← trocar o número quando entrar doação</span></small>
+  </div>
+
+  <p class="olho">Para onde vão</p>
+  <div class="destinos">
+    <div class="destino"><b>20</b><div>Colégio estadual de ensino médio de Cotegipe<small>É o único do município</small></div></div>
+    <div class="destino"><b>10</b><div>Escolas municipais do Centro e das vilas<small>Fundamental II</small></div></div>
+    <div class="destino"><b>10</b><div>Escolas de povoados e municípios vizinhos<small>Por ordem de pedido</small></div></div>
+  </div>
+
+  <p class="olho">Onde vai o dinheiro</p>
+  <table class="contas">
+    <tr><td>Impressão de um exemplar</td><td>R$ —</td></tr>
+    <tr><td>Entrega na escola</td><td>R$ —</td></tr>
+    <tr><td>Custo de um livro doado</td><td>R$ —</td></tr>
+  </table>
+  <p class="silencio" style="font-size:14px"><span class="editar">← preencher quando a gráfica fechar o orçamento</span> · Nada disso vira lucro. Este é um projeto independente e sem intermediário.</p>
+
+  <a class="btn btn-verde btn-bloco" style="margin-top:20px" href="https://wa.me/5577997026139?text=Ol%C3%A1%21%20Quero%20apadrinhar%20um%20exemplar%20do%20Muiraquit%C3%A3%20para%20a%20biblioteca%20de%20uma%20escola." target="_blank" rel="noreferrer">Quero pagar um exemplar</a>
+  <p class="silencio" style="margin-top:12px;font-size:14.5px">Pode ser um livro, pode ser cinco. Você escolhe se o nome aparece ou se fica anônimo.</p>
+
+  <div class="kit">
+    <h3>É professor ou coordenador?</h3>
+    <p>Tem um material de uma página com a sinopse, a faixa etária, os temas do livro e sugestões de atividade — feito para você mostrar na coordenação sem precisar explicar nada.</p>
+    <a class="btn btn-vazio btn-bloco" href="https://wa.me/5577997026139?text=Ol%C3%A1%21%20Sou%20professor(a)%20e%20quero%20receber%20o%20material%20pedag%C3%B3gico%20do%20Muiraquit%C3%A3." target="_blank" rel="noreferrer">Receber o material do professor</a>
+  </div>
 </section>
 
 <!-- ETAPAS -->
@@ -500,6 +588,10 @@ footer a:hover{color:var(--caco-luz)}
     <div class="resp"><p>O texto está pronto e o miolo está diagramado. A data depende do orçamento da gráfica — e é por isso que existe a lista de aviso: quando fechar, você recebe uma mensagem.</p></div>
   </details>
   <details>
+    <summary>Como funciona a doação para escolas?</summary>
+    <div class="resp"><p>Você paga o custo de um exemplar, o livro entra na primeira leva da impressão e vai direto para a biblioteca de uma escola pública — com o seu nome escrito na primeira página, se você quiser. Cada entrega é registrada e mandada de volta para quem doou.</p></div>
+  </details>
+  <details>
     <summary>Como faço para vender na minha loja ou levar para a minha escola?</summary>
     <div class="resp"><p>Chama no WhatsApp que a gente conversa direto.</p></div>
   </details>
@@ -526,6 +618,7 @@ footer a:hover{color:var(--caco-luz)}
       <a href="#livro">O livro</a>
       <a href="#universo">O sertão</a>
       <a href="#escolas">Nas escolas</a>
+      <a href="#estante">Doar um exemplar</a>
     </div>
     <div>
       <h3>Falar comigo</h3>
@@ -543,7 +636,7 @@ footer a:hover{color:var(--caco-luz)}
 
 <div class="barra">
   <a class="btn btn-cheio" href="https://wa.me/5577997026139?text=Ol%C3%A1%21%20Quero%20ser%20avisado%20quando%20a%20pr%C3%A9-venda%20do%20Muiraquit%C3%A3%20abrir." target="_blank" rel="noreferrer">Avise-me do lançamento</a>
-  <a class="btn btn-vazio" href="#apoio">Apoiar</a>
+  <a class="btn btn-vazio" href="#estante">Doar livro</a>
 </div>
 
 <script>
