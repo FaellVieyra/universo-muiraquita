@@ -13,6 +13,54 @@
   <meta property="og:image" content="https://universomuiraquita.com.br/capa-alternativa.webp">
   <link rel="icon" href="pedra.webp">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Menu fixo — acompanha a rolagem */
+    html { scroll-padding-top: 100px; }
+
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      z-index: 60;
+      transition: height .28s ease, background-color .28s ease, border-color .28s ease, box-shadow .28s ease;
+    }
+
+    .site-header.is-stuck {
+      height: 68px;
+      background: rgba(11, 13, 12, .9);
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
+      border-bottom-color: rgba(238, 231, 216, .22);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, .38);
+    }
+
+    .site-header .brand img { transition: width .28s ease; }
+    .site-header.is-stuck .brand img { width: 122px; }
+
+    @media (max-width: 1000px) {
+      html { scroll-padding-top: 92px; }
+      .site-header {
+        position: sticky;
+        top: 0;
+        left: auto;
+        right: auto;
+      }
+      .site-header.is-stuck { height: auto; }
+      .site-header.is-stuck .brand img { width: 108px; }
+    }
+
+    @media (max-width: 650px) {
+      html { scroll-padding-top: 128px; }
+      .site-header.is-stuck .brand img { width: 100px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .site-header,
+      .site-header .brand img { transition: none; }
+    }
+  </style>
 </head>
 <body>
 <link rel="preload" as="image" href="logotipo.webp"/>
@@ -538,6 +586,24 @@
       };
       phone.addEventListener('input', validatePhones);
       confirmation.addEventListener('input', validatePhones);
+    }
+
+    var header = document.querySelector('.site-header');
+    if (header) {
+      var ticking = false;
+      var syncHeader = function () {
+        var scrolled = (window.pageYOffset || document.documentElement.scrollTop) > 24;
+        header.classList.toggle('is-stuck', scrolled);
+        ticking = false;
+      };
+      var onScroll = function () {
+        if (ticking) return;
+        ticking = true;
+        window.requestAnimationFrame(syncHeader);
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll, { passive: true });
+      syncHeader();
     }
   })();
 </script>
