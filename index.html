@@ -13,6 +13,69 @@
   <meta property="og:image" content="https://universomuiraquita.com.br/capa-alternativa.webp">
   <link rel="icon" href="pedra.webp">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Menu fixo — acompanha a rolagem */
+    html { scroll-padding-top: 100px; }
+
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      z-index: 60;
+      transition: height .28s ease, background-color .28s ease,
+                  border-color .28s ease, box-shadow .28s ease;
+    }
+
+    .site-header.is-stuck {
+      height: 68px;
+      background: rgba(11, 13, 12, .9);
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
+      border-bottom-color: rgba(238, 231, 216, .22);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, .38);
+    }
+
+    .site-header .brand img { transition: width .28s ease; }
+    .site-header.is-stuck .brand img { width: 122px; }
+
+    @media (max-width: 1000px) {
+      html { scroll-padding-top: 92px; }
+      .site-header {
+        position: sticky;
+        top: 0;
+        left: auto;
+        right: auto;
+      }
+      .site-header.is-stuck { height: auto; }
+      .site-header.is-stuck .brand img { width: 108px; }
+    }
+
+    @media (max-width: 650px) {
+      html { scroll-padding-top: 128px; }
+      .site-header.is-stuck .brand img { width: 100px; }
+      .site-header nav a {
+        padding-left: 12px;
+        padding-right: 12px;
+        letter-spacing: .06em;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .site-header nav a {
+        padding-left: 9px;
+        padding-right: 9px;
+        font-size: 9px;
+        letter-spacing: .04em;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .site-header,
+      .site-header .brand img { transition: none; }
+    }
+  </style>
 </head>
 <body>
 <link rel="preload" as="image" href="logotipo.webp"/>
@@ -41,9 +104,8 @@
 </a>
 <nav aria-label="Navegação principal">
 <a href="#livro">O livro</a>
-<a href="#universo">O sertão</a>
-<a href="#personagens">A gente</a>
 <a href="#escolas">Escolas</a>
+<a href="#pre-venda">Campanha</a>
 <a class="nav-cta" href="#apoio">Apoiar</a>
 </nav>
 </header>
@@ -282,39 +344,82 @@
 </div>
 <div class="presale-copy">
 <p class="eyebrow">Campanha independente · acompanhamento público</p>
-<h2>A primeira edição já começou a receber apoio.</h2>
-<p>A campanha está aberta e toda contribuição conta. Você pode acompanhar aqui quanto já foi arrecadado, quantas pessoas participaram e quanto ainda falta para alcançar a meta-base da primeira edição.</p>
-<div class="campaign-card" data-goal="5946.88" data-raised="15" data-supporters="2" aria-labelledby="campaign-title">
-<div class="campaign-status">
-<span>Arrecadação em andamento</span>
-<b>ATUALIZADO EM 26/08/2026</b>
+<h2>A pré-venda da primeira edição começou.</h2>
+<p>São 200 exemplares para imprimir e a conta é pública. Acompanhe quanto já entrou, quantos apoios voluntários recebemos e quantos livros foram reservados antecipadamente.</p>
+<!--
+  PAINEL DA META — ponto único de atualização.
+  Para atualizar a campanha, altere SOMENTE os valores abaixo:
+    data-raised      = total já arrecadado (use ponto como decimal)
+    data-supporters  = número de apoios voluntários recebidos
+    data-preorders   = número de exemplares reservados na pré-venda
+    data-preorder-target = meta estimada de exemplares reservados
+    data-goal        = meta-base
+    data-book-price  = valor da pré-venda
+    data-updated     = data mostrada no topo do painel
+-->
+<div class="goalchart" data-goal="5946.88" data-raised="15" data-supporters="2" data-preorders="0" data-preorder-target="110" data-book-price="60" data-updated="26/08/2026" aria-labelledby="goalchart-title">
+<div class="goalchart-head">
+<p class="goalchart-kicker">Meta da 1ª edição <i>·</i> atualizado em <b id="gc-updated">26/08/2026</b>
+</p>
+<h3 id="goalchart-title">Ainda faltam <b id="gc-remaining">R$ 5.931,88</b> para o livro entrar na gráfica.</h3>
 </div>
-<div class="campaign-numbers">
-<div class="campaign-raised">
-<span>Já arrecadamos</span>
-<strong id="campaign-title">R$ 15,00</strong>
+<div class="goalchart-plot">
+<div class="gc-labels">
+<div class="gc-left">
+<span>Arrecadado até agora</span>
+<strong id="gc-raised">R$ 15,00</strong>
 </div>
-<div>
-<span>Pessoas que apoiaram</span>
-<strong id="campaign-supporters">2</strong>
-</div>
-<div>
+<div class="gc-right">
 <span>Meta-base</span>
-<strong>R$ 5.946,88</strong>
+<strong id="gc-goal">R$ 5.946,88</strong>
 </div>
 </div>
-<div class="campaign-progress" role="progressbar" aria-label="Progresso da arrecadação" aria-valuemin="0" aria-valuemax="5946.88" aria-valuenow="15">
-<i id="campaign-progress-fill"></i>
+<div class="gc-mid" id="gc-mid">
+<div class="gc-gapline">
+<div class="gc-gaplabel">
+<span>falta <b id="gc-gap">R$ 5.931,88</b>
+</span>
 </div>
-<div class="campaign-balance">
-<span id="campaign-percent">0,3% da meta alcançada</span>
-<strong id="campaign-remaining">Ainda faltam R$ 5.931,88</strong>
 </div>
-<p class="campaign-message"><strong>Não é preciso contribuir com um valor alto.</strong> R$ 5, R$ 10 ou qualquer quantia já aproxima o livro da impressão.</p>
-<div class="campaign-actions">
-<a class="button primary" href="#apoio">Apoiar agora com Pix</a>
-<a class="button share-whatsapp" href="https://wa.me/?text=Estou%20ajudando%20o%20livro%20Muiraquit%C3%A3%3A%20O%20Fragmento%20do%20Sert%C3%A3o%20a%20chegar%20%C3%A0%20impress%C3%A3o.%20A%20campanha%20aceita%20qualquer%20valor%2C%20at%C3%A9%20mesmo%20R%24%205.%20Conhe%C3%A7a%20o%20projeto%2C%20contribua%20ou%20compartilhe%3A%20https%3A%2F%2Funiversomuiraquita.com.br%2F%23apoio" target="_blank" rel="noreferrer">Compartilhar no WhatsApp</a>
+<div class="gc-track" role="img" id="gc-track" aria-label="Arrecadados R$ 15,00 de uma meta-base de R$ 5.946,88">
+<i class="gc-fill" id="gc-fill"></i>
 </div>
+<em class="gc-marker" aria-hidden="true">
+</em>
+</div>
+<div class="gc-foot">
+<div class="gc-stats">
+<div class="gc-count">
+<strong id="gc-supporters">2</strong>
+<span>apoios<br/>voluntários</span>
+</div>
+<div class="gc-count gc-preorders">
+<strong id="gc-preorders">0</strong>
+<span>exemplares<br/>reservados</span>
+</div>
+</div>
+<p class="gc-percent">
+<b id="gc-percent">0,3%</b> da meta alcançada</p>
+</div>
+</div>
+<div class="gc-tiers">
+<div class="gc-tier is-book">
+<span>Pré-venda · <b id="gc-price">R$ 60,00</b>
+</span>
+<strong>Garanta o seu exemplar</strong>
+<p>Cada compra antecipada reserva um exemplar da 1ª edição em seu nome. Meta estimada: <b id="gc-preorder-target">110 exemplares</b>.</p>
+</div>
+<div class="gc-tier">
+<span>Doação de qualquer valor</span>
+<strong>Ajuda a impressão</strong>
+<p>R$ 5, R$ 10 ou o que couber no seu bolso não reserva exemplar, mas empurra o livro para mais perto da gráfica.</p>
+</div>
+</div>
+<div class="gc-actions">
+<a class="button primary" href="#apoio">Comprar na pré-venda</a>
+<a class="button share-whatsapp" href="https://wa.me/?text=A%20pr%C3%A9-venda%20do%20livro%20Muiraquit%C3%A3%3A%20O%20Fragmento%20do%20Sert%C3%A3o%20come%C3%A7ou.%20O%20exemplar%20custa%20R%24%2060%20e%20tamb%C3%A9m%20%C3%A9%20poss%C3%ADvel%20apoiar%20a%20impress%C3%A3o%20com%20qualquer%20valor.%20Conhe%C3%A7a%20e%20compartilhe%3A%20https%3A%2F%2Funiversomuiraquita.com.br%2F%23apoio" target="_blank" rel="noreferrer">Compartilhar no WhatsApp</a>
+</div>
+<p class="gc-note">Pré-venda: R$ 60,00 por exemplar. Retirada gratuita em Cotegipe ou envio com frete calculado separadamente antes da confirmação.</p>
 </div>
 <div class="campaign-timeline" aria-label="Etapas da primeira edição">
 <div class="done"><i>✓</i><span>Orçamento</span><small>Concluído</small></div>
@@ -322,14 +427,14 @@
 <div><i>3</i><span>Impressão</span><small>Próxima etapa</small></div>
 <div><i>4</i><span>Lançamento</span><small>Entrega dos livros</small></div>
 </div>
-<div class="budget-card" aria-labelledby="budget-title">
-<div class="budget-heading">
+<details class="budget-card" aria-labelledby="budget-title">
+<summary class="budget-heading">
 <div>
 <span>Como a meta-base foi calculada</span>
 <strong id="budget-title">R$ 5.946,88</strong>
 </div>
 <b>FRETE PENDENTE</b>
-</div>
+</summary>
 <dl>
 <div>
 <dt>Impressão de 200 exemplares</dt>
@@ -346,17 +451,17 @@
 </dl>
 <p class="budget-specs"><strong>Especificações:</strong> 14 × 21 cm · 308 páginas · miolo PB em Avena 80 g · capa Triplex 250 g com laminação fosca · sem orelhas · colagem PUR.</p>
 <p class="budget-source">Orçamentos recebidos em 24/08/2026. O PDF formal foi solicitado à gráfica e será publicado aqui assim que for recebido. O valor final ainda incluirá o frete.</p>
-</div>
-<p class="campaign-footnote">A meta-base cobre a impressão de 200 exemplares e os serviços editoriais. O frete será acrescentado assim que for confirmado. O apoio atual é voluntário e não representa reserva de exemplar; a pré-venda será aberta separadamente.</p>
+</details>
+<p class="campaign-footnote">A meta-base cobre a impressão de 200 exemplares e os serviços editoriais. A pré-venda reserva o livro; o apoio voluntário ajuda a viabilizar a impressão, mas não reserva exemplar. A meta estimada de 110 reservas poderá ser ajustada quando o frete da gráfica for confirmado.</p>
 </div>
 </section>
 <section class="support section" id="apoio">
 <div class="support-intro">
-<p class="eyebrow">Apoio voluntário</p>
-<h2>Ajude o Muiraquitã a chegar mais longe.</h2>
-<p>Já existe uma meta-base para a primeira edição, e você pode contribuir com qualquer quantia para apoiar a impressão, a divulgação e a futura circulação da obra em escolas e bibliotecas.</p>
+<p class="eyebrow">Pré-venda e apoio voluntário</p>
+<h2>Reserve o seu livro ou ajude a impressão.</h2>
+<p>Na pré-venda, R$ 60,00 reservam um exemplar da primeira edição. Quem desejar apenas fortalecer o projeto também pode contribuir com qualquer quantia, sem reservar livro.</p>
 <div class="support-notice">
-<strong>Importante:</strong> este apoio é voluntário e não reserva nem inclui o recebimento de um exemplar. A pré-venda será aberta separadamente depois da confirmação do frete e do preço final.</div>
+<strong>Escolha antes de pagar:</strong> pré-venda por <b class="gc-price-ref">R$ 60,00</b>, com um exemplar reservado, ou apoio voluntário de qualquer valor, sem exemplar. A retirada em Cotegipe é gratuita; para outras cidades, o frete será calculado separadamente.</div>
 <div class="pix-card">
 <img src="pix-muiraquita.jpg" alt="QR Code Pix para apoiar o projeto Muiraquitã"/>
 <div>
@@ -384,10 +489,10 @@
 </div>
 </div>
 <form class="support-form" action="https://formsubmit.co/contato@universomuiraquita.com.br" enctype="multipart/form-data" method="POST">
-<input type="hidden" name="_subject" value="Novo apoio ao projeto Muiraquitã"/>
+<input type="hidden" name="_subject" value="Nova pré-venda ou apoio ao projeto Muiraquitã"/>
 <input type="hidden" name="_template" value="table"/>
 <input type="text" class="honey" tabindex="-1" autoComplete="off" name="_honey"/>
-<p class="form-step">Depois de realizar o Pix, preencha os dados e envie o comprovante.</p>
+<p class="form-step">Escolha a modalidade, realize o Pix e envie seus dados com o comprovante.</p>
 <label>Nome completo<input type="text" required="" name="Nome"/>
 </label>
 <div class="form-row">
@@ -401,14 +506,14 @@
 <label>E-mail <small>Opcional — preencha somente se utiliza</small>
 <input type="email" placeholder="seunome@exemplo.com" name="email"/>
 </label>
-<label>Como deseja apoiar?<select name="Finalidade do apoio" required="">
+<label>O que deseja fazer?<select id="support-kind" name="Modalidade" required="">
 <option value="" disabled="" selected="">Selecione uma opção</option>
-<option>Apoio geral ao projeto</option>
-<option>Apoio à impressão do livro</option>
-<option>Apoio à futura distribuição em escolas e bibliotecas</option>
+<option value="pre-venda">Comprar 1 exemplar na pré-venda — R$ 60,00</option>
+<option value="apoio-impressao">Apoiar a impressão com qualquer valor — sem exemplar</option>
+<option value="apoio-escolas">Apoiar a distribuição em escolas e bibliotecas — sem exemplar</option>
 </select>
 </label>
-<label>Valor enviado pelo Pix<input type="number" min="1" step="0.01" placeholder="R$" required="" name="Valor enviado"/>
+<label>Valor enviado pelo Pix<input id="support-amount" type="number" min="1" step="0.01" placeholder="R$" required="" name="Valor enviado"/>
 </label>
 <label>Deseja ter seu nome divulgado entre os apoiadores?<select name="Divulgação do nome" required="">
 <option selected="">Sim</option>
@@ -420,9 +525,9 @@
 <input type="file" accept="image/png,image/jpeg,application/pdf" required="" name="attachment"/>
 </label>
 <label class="check">
-<input type="checkbox" required="" name="Pagamento confirmado pelo apoiador" value="Sim"/> Confirmo que já realizei o Pix e autorizo o uso destes dados somente para registrar e confirmar este apoio.</label>
-<button class="button primary form-submit" type="submit">Enviar apoio e comprovante</button>
-<a class="whatsapp-fallback" href="https://wa.me/5577997026139?text=Ol%C3%A1%21%20Realizei%20um%20apoio%20volunt%C3%A1rio%20ao%20projeto%20Muiraquit%C3%A3%20e%20vou%20enviar%20o%20comprovante." target="_blank" rel="noreferrer">Não conseguiu enviar? Confirmar pelo WhatsApp →</a>
+<input type="checkbox" required="" name="Pagamento confirmado" value="Sim"/> Confirmo que já realizei o Pix e autorizo o uso destes dados somente para registrar e confirmar esta pré-venda ou apoio.</label>
+<button class="button primary form-submit" type="submit">Enviar dados e comprovante</button>
+<a class="whatsapp-fallback" href="https://wa.me/5577997026139?text=Ol%C3%A1%21%20Realizei%20uma%20pr%C3%A9-venda%20ou%20apoio%20ao%20projeto%20Muiraquit%C3%A3%20e%20vou%20enviar%20o%20comprovante." target="_blank" rel="noreferrer">Não conseguiu enviar? Confirmar pelo WhatsApp →</a>
 </form>
 </section>
 <section class="author section" id="autor">
@@ -453,11 +558,11 @@
 </details>
 <details>
 <summary>Quando sai?</summary>
-<p>O texto e o miolo estão prontos, e o orçamento-base para 200 exemplares já foi recebido. Agora aguardamos o frete e a abertura da pré-venda; depois da aprovação final, a gráfica estima de 10 a 15 dias úteis para produzir os livros.</p>
+<p>O texto e o miolo estão prontos, o orçamento-base para 200 exemplares já foi recebido e a pré-venda está aberta. A impressão começará quando a campanha alcançar o valor necessário; depois da aprovação final, a gráfica estima de 10 a 15 dias úteis para produzir os livros.</p>
 </details>
 <details>
-<summary>O apoio garante um livro para mim?</summary>
-<p>Não. O apoio voluntário ajuda a tornar a impressão possível. A pré-venda será aberta separadamente, com preço, reserva e direito ao exemplar.</p>
+<summary>Qual é a diferença entre pré-venda e apoio?</summary>
+<p>A pré-venda custa R$ 60,00 e reserva um exemplar da 1ª edição em seu nome. O apoio voluntário pode ser de qualquer valor e ajuda a pagar a impressão, mas não reserva livro. A retirada em Cotegipe é gratuita; para outras cidades, o frete será calculado separadamente.</p>
 </details>
 <details>
 <summary>Como levar Muiraquitã para uma escola ou biblioteca?</summary>
@@ -495,27 +600,59 @@
 </main>
 <script>
   (function () {
-    var campaign = document.querySelector('.campaign-card');
-    if (campaign) {
-      var goal = Number(campaign.getAttribute('data-goal')) || 0;
-      var raised = Number(campaign.getAttribute('data-raised')) || 0;
-      var supporters = Number(campaign.getAttribute('data-supporters')) || 0;
+    var chart = document.querySelector('.goalchart');
+    if (chart) {
+      var money = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' });
+      var num = function (name) { return Number(chart.getAttribute(name)) || 0; };
+      var goal = num('data-goal');
+      var raised = num('data-raised');
+      var supporters = num('data-supporters');
+      var preorders = num('data-preorders');
+      var preorderTarget = num('data-preorder-target');
+      var price = num('data-book-price');
+      var updated = chart.getAttribute('data-updated') || '';
       var remaining = Math.max(goal - raised, 0);
       var percent = goal > 0 ? Math.min((raised / goal) * 100, 100) : 0;
-      var money = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' });
-      var raisedElement = document.getElementById('campaign-title');
-      var supportersElement = document.getElementById('campaign-supporters');
-      var remainingElement = document.getElementById('campaign-remaining');
-      var percentElement = document.getElementById('campaign-percent');
-      var fillElement = document.getElementById('campaign-progress-fill');
-      var progressElement = campaign.querySelector('.campaign-progress');
 
-      if (raisedElement) raisedElement.textContent = money.format(raised);
-      if (supportersElement) supportersElement.textContent = supporters;
-      if (remainingElement) remainingElement.textContent = remaining > 0 ? 'Ainda faltam ' + money.format(remaining) : 'Meta-base alcançada!';
-      if (percentElement) percentElement.textContent = percent.toLocaleString('pt-BR', { maximumFractionDigits: 1 }) + '% da meta alcançada';
-      if (fillElement) fillElement.style.width = percent + '%';
-      if (progressElement) progressElement.setAttribute('aria-valuenow', String(raised));
+      var set = function (id, value) {
+        var element = document.getElementById(id);
+        if (element) element.textContent = value;
+      };
+
+      set('gc-raised', money.format(raised));
+      set('gc-goal', money.format(goal));
+      set('gc-supporters', String(supporters));
+      set('gc-preorders', String(preorders));
+      set('gc-preorder-target', String(preorderTarget) + ' exemplares');
+      set('gc-updated', updated);
+      set('gc-percent', percent.toLocaleString('pt-BR', { maximumFractionDigits: 1 }) + '%');
+      set('gc-gap', money.format(remaining));
+      set('gc-price', money.format(price));
+
+      var headline = document.getElementById('gc-remaining');
+      if (headline) {
+        headline.textContent = money.format(remaining);
+        if (remaining <= 0 && headline.parentNode) headline.parentNode.textContent = 'Meta-base alcançada. Obrigado!';
+      }
+
+      Array.prototype.forEach.call(document.querySelectorAll('.gc-price-ref'), function (element) {
+        element.textContent = money.format(price);
+      });
+
+      // A linha laranja fica na posição real da arrecadação, com um mínimo
+      // visível para não desaparecer quando o percentual é muito baixo.
+      var position = Math.min(Math.max(percent, 1.2), 97);
+      var mid = document.getElementById('gc-mid');
+      if (mid) mid.style.setProperty('--gc-pos', position + '%');
+
+      var fill = document.getElementById('gc-fill');
+      if (fill) fill.style.width = position + '%';
+
+      var track = document.getElementById('gc-track');
+      if (track) {
+        track.setAttribute('aria-label', 'Arrecadados ' + money.format(raised) +
+          ' de uma meta-base de ' + money.format(goal) + '. Faltam ' + money.format(remaining) + '.');
+      }
     }
 
     var button = document.getElementById('copy-pix');
@@ -538,6 +675,38 @@
       };
       phone.addEventListener('input', validatePhones);
       confirmation.addEventListener('input', validatePhones);
+    }
+
+    var supportKind = document.getElementById('support-kind');
+    var supportAmount = document.getElementById('support-amount');
+    if (supportKind && supportAmount) {
+      var validateAmount = function () {
+        var isPreorder = supportKind.value === 'pre-venda';
+        var amount = Number(supportAmount.value) || 0;
+        supportAmount.setCustomValidity(isPreorder && amount < 60
+          ? 'A pré-venda exige o pagamento mínimo de R$ 60,00 por exemplar.'
+          : '');
+      };
+      supportKind.addEventListener('change', validateAmount);
+      supportAmount.addEventListener('input', validateAmount);
+    }
+
+    var header = document.querySelector('.site-header');
+    if (header) {
+      var ticking = false;
+      var syncHeader = function () {
+        var scrolled = (window.pageYOffset || document.documentElement.scrollTop) > 24;
+        header.classList.toggle('is-stuck', scrolled);
+        ticking = false;
+      };
+      var onScroll = function () {
+        if (ticking) return;
+        ticking = true;
+        window.requestAnimationFrame(syncHeader);
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll, { passive: true });
+      syncHeader();
     }
   })();
 </script>
