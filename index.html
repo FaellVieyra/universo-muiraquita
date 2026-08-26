@@ -283,73 +283,38 @@
 <div class="presale-copy">
 <p class="eyebrow">Campanha independente · acompanhamento público</p>
 <h2>A primeira edição já começou a receber apoio.</h2>
-<p>São 200 exemplares para imprimir e a conta é pública. Veja abaixo quanto já entrou, quantas doações chegaram e o tamanho real do que ainda falta.</p>
-<!--
-  PAINEL DA META — ponto único de atualização.
-  Para atualizar a campanha, altere SOMENTE os valores abaixo:
-    data-raised      = total já arrecadado (use ponto como decimal)
-    data-supporters  = número de doações recebidas
-    data-goal        = meta-base
-    data-book-price  = valor que garante o exemplar  <<< PROVISÓRIO: CONFIRMAR
-    data-updated     = data mostrada no topo do painel
--->
-<div class="goalchart" data-goal="5946.88" data-raised="15" data-supporters="2" data-book-price="60" data-updated="26/08/2026" aria-labelledby="goalchart-title">
-<div class="goalchart-head">
-<p class="goalchart-kicker">Meta da 1ª edição <i>·</i> atualizado em <b id="gc-updated">26/08/2026</b>
-</p>
-<h3 id="goalchart-title">Ainda faltam <b id="gc-remaining">R$ 5.931,88</b> para o livro entrar na gráfica.</h3>
+<p>A campanha está aberta e toda contribuição conta. Você pode acompanhar aqui quanto já foi arrecadado, quantas pessoas participaram e quanto ainda falta para alcançar a meta-base da primeira edição.</p>
+<div class="campaign-card" data-goal="5946.88" data-raised="15" data-supporters="2" aria-labelledby="campaign-title">
+<div class="campaign-status">
+<span>Arrecadação em andamento</span>
+<b>ATUALIZADO EM 26/08/2026</b>
 </div>
-<div class="goalchart-plot">
-<div class="gc-labels">
-<div class="gc-left">
-<span>Arrecadado até agora</span>
-<strong id="gc-raised">R$ 15,00</strong>
+<div class="campaign-numbers">
+<div class="campaign-raised">
+<span>Já arrecadamos</span>
+<strong id="campaign-title">R$ 15,00</strong>
 </div>
-<div class="gc-right">
+<div>
+<span>Pessoas que apoiaram</span>
+<strong id="campaign-supporters">2</strong>
+</div>
+<div>
 <span>Meta-base</span>
-<strong id="gc-goal">R$ 5.946,88</strong>
+<strong>R$ 5.946,88</strong>
 </div>
 </div>
-<div class="gc-mid" id="gc-mid">
-<div class="gc-gapline">
-<div class="gc-gaplabel">
-<span>falta <b id="gc-gap">R$ 5.931,88</b>
-</span>
+<div class="campaign-progress" role="progressbar" aria-label="Progresso da arrecadação" aria-valuemin="0" aria-valuemax="5946.88" aria-valuenow="15">
+<i id="campaign-progress-fill"></i>
 </div>
+<div class="campaign-balance">
+<span id="campaign-percent">0,3% da meta alcançada</span>
+<strong id="campaign-remaining">Ainda faltam R$ 5.931,88</strong>
 </div>
-<div class="gc-track" role="img" id="gc-track" aria-label="Arrecadados R$ 15,00 de uma meta-base de R$ 5.946,88">
-<i class="gc-fill" id="gc-fill"></i>
-</div>
-<em class="gc-marker" aria-hidden="true">
-</em>
-</div>
-<div class="gc-foot">
-<div class="gc-count">
-<strong id="gc-supporters">2</strong>
-<span>doações<br/>recebidas</span>
-</div>
-<p class="gc-percent">
-<b id="gc-percent">0,3%</b> da meta alcançada</p>
-</div>
-</div>
-<div class="gc-tiers">
-<div class="gc-tier is-book">
-<span>Doação a partir de <b id="gc-price">R$ 60,00</b>
-</span>
-<strong>Garante o seu exemplar</strong>
-<p>Quem contribui com o valor do livro ou mais tem um exemplar da 1ª edição reservado em seu nome.</p>
-</div>
-<div class="gc-tier">
-<span>Doação de qualquer valor</span>
-<strong>Ajuda a impressão</strong>
-<p>R$ 5, R$ 10 ou o que couber no seu bolso não reserva exemplar, mas empurra o livro para mais perto da gráfica.</p>
-</div>
-</div>
-<div class="gc-actions">
+<p class="campaign-message"><strong>Não é preciso contribuir com um valor alto.</strong> R$ 5, R$ 10 ou qualquer quantia já aproxima o livro da impressão.</p>
+<div class="campaign-actions">
 <a class="button primary" href="#apoio">Apoiar agora com Pix</a>
 <a class="button share-whatsapp" href="https://wa.me/?text=Estou%20ajudando%20o%20livro%20Muiraquit%C3%A3%3A%20O%20Fragmento%20do%20Sert%C3%A3o%20a%20chegar%20%C3%A0%20impress%C3%A3o.%20A%20campanha%20aceita%20qualquer%20valor%2C%20at%C3%A9%20mesmo%20R%24%205.%20Conhe%C3%A7a%20o%20projeto%2C%20contribua%20ou%20compartilhe%3A%20https%3A%2F%2Funiversomuiraquita.com.br%2F%23apoio" target="_blank" rel="noreferrer">Compartilhar no WhatsApp</a>
 </div>
-<p class="gc-note">O valor do exemplar cobre impressão e serviços editoriais. O frete ainda está sendo orçado e será combinado com cada apoiador antes do envio.</p>
 </div>
 <div class="campaign-timeline" aria-label="Etapas da primeira edição">
 <div class="done"><i>✓</i><span>Orçamento</span><small>Concluído</small></div>
@@ -357,14 +322,14 @@
 <div><i>3</i><span>Impressão</span><small>Próxima etapa</small></div>
 <div><i>4</i><span>Lançamento</span><small>Entrega dos livros</small></div>
 </div>
-<details class="budget-card" aria-labelledby="budget-title">
-<summary class="budget-heading">
+<div class="budget-card" aria-labelledby="budget-title">
+<div class="budget-heading">
 <div>
 <span>Como a meta-base foi calculada</span>
 <strong id="budget-title">R$ 5.946,88</strong>
 </div>
 <b>FRETE PENDENTE</b>
-</summary>
+</div>
 <dl>
 <div>
 <dt>Impressão de 200 exemplares</dt>
@@ -381,8 +346,8 @@
 </dl>
 <p class="budget-specs"><strong>Especificações:</strong> 14 × 21 cm · 308 páginas · miolo PB em Avena 80 g · capa Triplex 250 g com laminação fosca · sem orelhas · colagem PUR.</p>
 <p class="budget-source">Orçamentos recebidos em 24/08/2026. O PDF formal foi solicitado à gráfica e será publicado aqui assim que for recebido. O valor final ainda incluirá o frete.</p>
-</details>
-<p class="campaign-footnote">A meta-base cobre a impressão de 200 exemplares e os serviços editoriais. Doações a partir do valor do livro garantem um exemplar reservado; doações menores ajudam a viabilizar a impressão, sem reserva. O frete ainda está sendo orçado e será combinado antes do envio.</p>
+</div>
+<p class="campaign-footnote">A meta-base cobre a impressão de 200 exemplares e os serviços editoriais. O frete será acrescentado assim que for confirmado. O apoio atual é voluntário e não representa reserva de exemplar; a pré-venda será aberta separadamente.</p>
 </div>
 </section>
 <section class="support section" id="apoio">
@@ -391,7 +356,7 @@
 <h2>Ajude o Muiraquitã a chegar mais longe.</h2>
 <p>Já existe uma meta-base para a primeira edição, e você pode contribuir com qualquer quantia para apoiar a impressão, a divulgação e a futura circulação da obra em escolas e bibliotecas.</p>
 <div class="support-notice">
-<strong>Importante:</strong> doações a partir de <b class="gc-price-ref">R$ 60,00</b> garantem um exemplar da 1ª edição reservado em seu nome. Valores menores não reservam exemplar, mas ajudam a pagar a impressão. O frete ainda está sendo orçado e será combinado com cada apoiador antes do envio.</div>
+<strong>Importante:</strong> este apoio é voluntário e não reserva nem inclui o recebimento de um exemplar. A pré-venda será aberta separadamente depois da confirmação do frete e do preço final.</div>
 <div class="pix-card">
 <img src="pix-muiraquita.jpg" alt="QR Code Pix para apoiar o projeto Muiraquitã"/>
 <div>
@@ -438,9 +403,8 @@
 </label>
 <label>Como deseja apoiar?<select name="Finalidade do apoio" required="">
 <option value="" disabled="" selected="">Selecione uma opção</option>
-<option>Quero garantir meu exemplar (valor do livro ou mais)</option>
-<option>Apoio à impressão do livro, sem reserva de exemplar</option>
 <option>Apoio geral ao projeto</option>
+<option>Apoio à impressão do livro</option>
 <option>Apoio à futura distribuição em escolas e bibliotecas</option>
 </select>
 </label>
@@ -493,7 +457,7 @@
 </details>
 <details>
 <summary>O apoio garante um livro para mim?</summary>
-<p>Depende do valor. Doações a partir do valor do livro garantem um exemplar da 1ª edição reservado em seu nome — é só informar seus dados no formulário de apoio. Doações menores não reservam exemplar, mas ajudam a pagar a impressão e são igualmente importantes. O frete ainda está sendo orçado e será combinado com cada apoiador antes do envio.</p>
+<p>Não. O apoio voluntário ajuda a tornar a impressão possível. A pré-venda será aberta separadamente, com preço, reserva e direito ao exemplar.</p>
 </details>
 <details>
 <summary>Como levar Muiraquitã para uma escola ou biblioteca?</summary>
@@ -531,55 +495,27 @@
 </main>
 <script>
   (function () {
-    var chart = document.querySelector('.goalchart');
-    if (chart) {
-      var money = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' });
-      var num = function (name) { return Number(chart.getAttribute(name)) || 0; };
-      var goal = num('data-goal');
-      var raised = num('data-raised');
-      var supporters = num('data-supporters');
-      var price = num('data-book-price');
-      var updated = chart.getAttribute('data-updated') || '';
+    var campaign = document.querySelector('.campaign-card');
+    if (campaign) {
+      var goal = Number(campaign.getAttribute('data-goal')) || 0;
+      var raised = Number(campaign.getAttribute('data-raised')) || 0;
+      var supporters = Number(campaign.getAttribute('data-supporters')) || 0;
       var remaining = Math.max(goal - raised, 0);
       var percent = goal > 0 ? Math.min((raised / goal) * 100, 100) : 0;
+      var money = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' });
+      var raisedElement = document.getElementById('campaign-title');
+      var supportersElement = document.getElementById('campaign-supporters');
+      var remainingElement = document.getElementById('campaign-remaining');
+      var percentElement = document.getElementById('campaign-percent');
+      var fillElement = document.getElementById('campaign-progress-fill');
+      var progressElement = campaign.querySelector('.campaign-progress');
 
-      var set = function (id, value) {
-        var element = document.getElementById(id);
-        if (element) element.textContent = value;
-      };
-
-      set('gc-raised', money.format(raised));
-      set('gc-goal', money.format(goal));
-      set('gc-supporters', String(supporters));
-      set('gc-updated', updated);
-      set('gc-percent', percent.toLocaleString('pt-BR', { maximumFractionDigits: 1 }) + '%');
-      set('gc-gap', money.format(remaining));
-      set('gc-price', money.format(price));
-
-      var headline = document.getElementById('gc-remaining');
-      if (headline) {
-        headline.textContent = money.format(remaining);
-        if (remaining <= 0 && headline.parentNode) headline.parentNode.textContent = 'Meta-base alcançada. Obrigado!';
-      }
-
-      Array.prototype.forEach.call(document.querySelectorAll('.gc-price-ref'), function (element) {
-        element.textContent = money.format(price);
-      });
-
-      // A linha laranja fica na posição real da arrecadação, com um mínimo
-      // visível para não desaparecer quando o percentual é muito baixo.
-      var position = Math.min(Math.max(percent, 1.2), 97);
-      var mid = document.getElementById('gc-mid');
-      if (mid) mid.style.setProperty('--gc-pos', position + '%');
-
-      var fill = document.getElementById('gc-fill');
-      if (fill) fill.style.width = position + '%';
-
-      var track = document.getElementById('gc-track');
-      if (track) {
-        track.setAttribute('aria-label', 'Arrecadados ' + money.format(raised) +
-          ' de uma meta-base de ' + money.format(goal) + '. Faltam ' + money.format(remaining) + '.');
-      }
+      if (raisedElement) raisedElement.textContent = money.format(raised);
+      if (supportersElement) supportersElement.textContent = supporters;
+      if (remainingElement) remainingElement.textContent = remaining > 0 ? 'Ainda faltam ' + money.format(remaining) : 'Meta-base alcançada!';
+      if (percentElement) percentElement.textContent = percent.toLocaleString('pt-BR', { maximumFractionDigits: 1 }) + '% da meta alcançada';
+      if (fillElement) fillElement.style.width = percent + '%';
+      if (progressElement) progressElement.setAttribute('aria-valuenow', String(raised));
     }
 
     var button = document.getElementById('copy-pix');
