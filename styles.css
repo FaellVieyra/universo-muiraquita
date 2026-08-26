@@ -129,3 +129,100 @@ footer a{font-size:13px;line-height:1.45}footer .footer-brand p{font-family:Aria
   .campaign-timeline{grid-template-columns:1fr 1fr}.campaign-timeline>div{border-bottom:1px solid var(--line)}.campaign-timeline>div:nth-child(2){border-right:0}.campaign-timeline>div:nth-child(3),.campaign-timeline>div:nth-child(4){border-bottom:0}.campaign-timeline span{font-size:10px}.campaign-timeline small{font-size:10px}
   .campaign-footnote{font-size:13px!important;line-height:1.6!important}
 }
+
+/* =========================================================
+   PAINEL DA META — gráfico horizontal da arrecadação.
+   Único ponto de foco da seção: quanto entrou, a linha
+   laranja da posição atual e o tanto que ainda falta.
+   ========================================================= */
+:root{--orange:#e2802f}
+.goalchart{margin:34px 0 24px;padding:30px;border:1px solid rgba(105,189,129,.42);border-radius:18px;background:linear-gradient(150deg,rgba(105,189,129,.13),rgba(8,12,9,.9) 52%);box-shadow:0 28px 70px rgba(0,0,0,.32)}
+.goalchart-head{margin-bottom:26px}
+.goalchart-kicker{margin:0 0 12px;font:800 10px/1.4 Arial,Helvetica,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--jade)}
+.goalchart-kicker i{font-style:normal;color:#5c635c;padding:0 4px}
+.goalchart-kicker b{color:#8f968f;font-weight:800}
+.goalchart-head h3{margin:0;font:400 clamp(25px,3.1vw,36px)/1.2 Georgia,serif;color:var(--paper)}
+.goalchart-head h3 b{font-weight:400;color:var(--orange);white-space:nowrap}
+
+.goalchart-plot{padding:24px 26px 22px;border:1px solid var(--line);border-radius:12px;background:#0d110e}
+.gc-labels{display:flex;align-items:flex-end;justify-content:space-between;gap:24px}
+.gc-labels span{display:block;margin-bottom:6px;font:10px/1.35 Arial,Helvetica,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#8d948e}
+.gc-labels strong{display:block;font:400 26px/1 Georgia,serif;white-space:nowrap}
+.gc-left strong{color:var(--jade)}
+.gc-right{text-align:right}
+.gc-right strong{color:var(--paper)}
+
+/* Faixa central: rótulo do que falta + trilho + linha laranja. */
+.gc-mid{--gc-pos:1.2%;position:relative;margin-top:20px}
+.gc-gapline{position:relative;height:38px}
+.gc-gaplabel{position:absolute;top:50%;left:var(--gc-pos);right:0;display:flex;align-items:center;justify-content:center;transform:translateY(-50%)}
+.gc-gaplabel:before{content:"";position:absolute;top:50%;left:10px;right:9px;border-top:1px dashed rgba(226,128,47,.6)}
+.gc-gaplabel:after{content:"";position:absolute;top:50%;right:0;width:0;height:0;border-left:8px solid var(--orange);border-top:5px solid transparent;border-bottom:5px solid transparent;transform:translateY(-50%)}
+.gc-gaplabel span{position:relative;max-width:calc(100% - 40px);padding:0 14px;background:#0d110e;color:var(--orange);font:10px/1.4 Arial,Helvetica,sans-serif;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.gc-gaplabel b{font-size:15px;letter-spacing:.02em}
+
+.gc-track{position:relative;height:18px;overflow:hidden;border-radius:999px;background:#242a25;box-shadow:inset 0 1px 4px rgba(0,0,0,.6)}
+.gc-fill{display:block;width:1.2%;height:100%;border-radius:inherit;background:linear-gradient(90deg,#2d7d52,var(--jade));transition:width .9s ease}
+.gc-marker{position:absolute;top:0;bottom:-9px;left:var(--gc-pos);width:2px;background:var(--orange);box-shadow:0 0 10px rgba(226,128,47,.55);transform:translateX(-1px)}
+.gc-marker:after{content:"";position:absolute;left:50%;bottom:-4px;width:8px;height:8px;border-radius:50%;background:var(--orange);transform:translateX(-50%)}
+
+.gc-foot{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-top:26px}
+.gc-count{display:flex;align-items:center;gap:14px}
+.gc-count strong{font:400 clamp(52px,7vw,76px)/.85 Georgia,serif;color:var(--paper)}
+.gc-count span{font:11px/1.35 Arial,Helvetica,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#8d948e}
+.gc-percent{margin:0;text-align:right;font:12px/1.4 Arial,Helvetica,sans-serif;color:#8d948e}
+.gc-percent b{display:block;font:400 22px/1.1 Georgia,serif;color:var(--jade)}
+
+/* Regras da doação: o que garante exemplar e o que ajuda. */
+.gc-tiers{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:22px}
+.gc-tier{padding:20px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.028)}
+.gc-tier.is-book{border-color:rgba(105,189,129,.55);background:linear-gradient(135deg,rgba(105,189,129,.14),rgba(255,255,255,.02) 60%);box-shadow:inset 3px 0 0 var(--jade)}
+.gc-tier>span{display:block;margin-bottom:9px;font:800 10px/1.4 Arial,Helvetica,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#98a09a}
+.gc-tier.is-book>span{color:var(--jade)}
+.gc-tier>span b{font-size:13px;letter-spacing:.04em;color:var(--paper)}
+.gc-tier strong{display:block;margin-bottom:8px;font:400 21px/1.2 Georgia,serif;color:#f2ede2}
+.gc-tier p{margin:0;font:14px/1.6 Arial,Helvetica,sans-serif;color:#b3b9b3}
+
+.gc-actions{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+.gc-actions .button{margin:0;min-height:56px}
+.gc-note{margin:16px 0 0!important;font:12px/1.6 Arial,Helvetica,sans-serif!important;color:#868d87!important}
+
+/* Orçamento recolhido: transparência sem competir com a meta. */
+details.budget-card{padding:0 24px 22px;border-radius:12px}
+details.budget-card dl{margin-top:6px}
+summary.budget-heading{list-style:none;cursor:pointer;margin:0 -24px;padding:22px 48px 20px 24px;border-bottom:0;position:relative}
+summary.budget-heading>b{margin-right:18px}
+summary.budget-heading::-webkit-details-marker{display:none}
+summary.budget-heading:after{content:"+";position:absolute;top:50%;right:22px;transform:translateY(-50%);color:var(--gold);font-size:20px}
+details.budget-card[open] summary.budget-heading{border-bottom:1px solid var(--line)}
+details.budget-card[open] summary.budget-heading:after{content:"−"}
+summary.budget-heading strong{font-size:30px}
+
+@media(max-width:650px){
+  .goalchart{margin:28px 0 20px;padding:20px 16px;border-radius:14px}
+  .goalchart-plot{padding:18px 16px 16px}
+  .gc-labels{display:block}
+  .gc-labels .gc-right{margin-top:16px;text-align:left}
+  .gc-labels strong{font-size:23px}
+  .gc-left strong{font-size:30px}
+  .gc-gapline{height:34px}
+  .gc-gaplabel span{padding:0 9px;font-size:9px;letter-spacing:.08em}
+  .gc-gaplabel b{font-size:13px}
+  .gc-foot{display:block;margin-top:20px}
+  .gc-count{gap:12px}
+  .gc-count strong{font-size:60px}
+  .gc-count span{font-size:10px}
+  .gc-percent{display:flex;align-items:baseline;gap:8px;margin-top:14px!important;padding-top:13px;border-top:1px solid var(--line);text-align:left}
+  .gc-percent b{display:inline;font-size:19px}
+  .gc-tiers{grid-template-columns:1fr}
+  .gc-tier{padding:17px 16px}
+  .gc-tier p{font-size:15px}
+  .gc-actions{grid-template-columns:1fr}
+  .gc-actions .button{font-size:11px;line-height:1.35;text-align:center}
+  .gc-note{font-size:13px!important}
+  details.budget-card{padding:0 16px 18px}
+  summary.budget-heading{margin:0 -16px;padding:18px 40px 16px 16px}
+  summary.budget-heading strong{font-size:27px}
+}
+
+details.budget-card:not([open]){padding-bottom:0}
