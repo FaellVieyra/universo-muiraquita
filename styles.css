@@ -70,3 +70,30 @@ footer a{font-size:13px;line-height:1.45}footer .footer-brand p{font-family:Aria
   .educator-contact{align-items:flex-start!important;flex-direction:column!important;gap:7px!important;padding:18px!important}.educator-contact span,.educator-contact strong{font-size:14px;text-align:left}
   .school-note{font-size:15px!important;line-height:1.65!important}
 }
+
+/* Orçamento-base da primeira edição: transparência para a pré-venda. */
+.presale{grid-template-columns:.72fr 1.28fr}
+.presale-copy{max-width:760px}
+.budget-card{margin:32px 0 22px;padding:26px;border:1px solid rgba(117,201,141,.34);background:rgba(8,12,9,.58);box-shadow:0 22px 55px rgba(0,0,0,.18)}
+.budget-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding-bottom:20px;border-bottom:1px solid var(--line)}
+.budget-heading span{display:block;margin-bottom:7px;font-size:10px;text-transform:uppercase;letter-spacing:.16em;color:#aaa}
+.budget-heading strong{font:400 38px/1 Georgia,serif;color:var(--paper)}
+.budget-heading>b{padding:8px 10px;border:1px solid rgba(198,160,58,.45);color:var(--gold);font-size:9px;letter-spacing:.13em}
+.budget-card dl{margin:10px 0 0}
+.budget-card dl>div{display:flex;justify-content:space-between;gap:25px;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.budget-card dt{font:14px/1.45 Arial,Helvetica,sans-serif;color:#bcbfb9}
+.budget-card dd{margin:0;white-space:nowrap;font:700 14px/1.45 Arial,Helvetica,sans-serif;color:#f0ece3}
+.budget-card .budget-total dt,.budget-card .budget-total dd{color:var(--jade)}
+.budget-specs,.budget-source{font-family:Arial,Helvetica,sans-serif!important}
+.budget-specs{margin:18px 0 0!important;font-size:13px!important;line-height:1.6!important;color:#d1cec6!important}
+.budget-source{margin:12px 0 0!important;font-size:11px!important;line-height:1.55!important;color:#858a84!important}
+.progress-card{margin:22px 0 30px}
+.progress-top{gap:18px}
+.progress-top b{text-align:right}
+.progress-bar i{width:35%}
+.progress-steps{gap:12px}
+.presale small{max-width:390px;line-height:1.5;vertical-align:middle}
+@media(max-width:1000px){.presale{grid-template-columns:1fr}}
+@media(max-width:650px){
+  .budget-card{padding:20px 16px}.budget-heading{display:block}.budget-heading strong{font-size:34px}.budget-heading>b{display:inline-block;margin-top:16px}.budget-card dl>div{display:block}.budget-card dd{margin-top:5px}.progress-top{display:block}.progress-top b{display:block;margin-top:8px;text-align:left}.progress-steps{font-size:8px;line-height:1.35}
+}
