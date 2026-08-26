@@ -281,13 +281,51 @@
 <img src="livro-mockup.webp" alt="Livro Muiraquitã em perspectiva"/>
 </div>
 <div class="presale-copy">
-<p class="eyebrow">Primeira edição independente · transparência</p>
-<h2>Já temos uma previsão para a pré-venda.</h2>
-<p>A gráfica apresentou o orçamento-base para produzir os primeiros 200 exemplares. O valor abaixo ainda é provisório porque o frete para Cotegipe está sendo calculado. O preço de pré-venda será anunciado quando o custo completo estiver fechado.</p>
+<p class="eyebrow">Campanha independente · acompanhamento público</p>
+<h2>A primeira edição já começou a receber apoio.</h2>
+<p>A campanha está aberta e toda contribuição conta. Você pode acompanhar aqui quanto já foi arrecadado, quantas pessoas participaram e quanto ainda falta para alcançar a meta-base da primeira edição.</p>
+<div class="campaign-card" data-goal="5946.88" data-raised="15" data-supporters="2" aria-labelledby="campaign-title">
+<div class="campaign-status">
+<span>Arrecadação em andamento</span>
+<b>ATUALIZADO EM 26/08/2026</b>
+</div>
+<div class="campaign-numbers">
+<div class="campaign-raised">
+<span>Já arrecadamos</span>
+<strong id="campaign-title">R$ 15,00</strong>
+</div>
+<div>
+<span>Pessoas que apoiaram</span>
+<strong id="campaign-supporters">2</strong>
+</div>
+<div>
+<span>Meta-base</span>
+<strong>R$ 5.946,88</strong>
+</div>
+</div>
+<div class="campaign-progress" role="progressbar" aria-label="Progresso da arrecadação" aria-valuemin="0" aria-valuemax="5946.88" aria-valuenow="15">
+<i id="campaign-progress-fill"></i>
+</div>
+<div class="campaign-balance">
+<span id="campaign-percent">0,3% da meta alcançada</span>
+<strong id="campaign-remaining">Ainda faltam R$ 5.931,88</strong>
+</div>
+<p class="campaign-message"><strong>Não é preciso contribuir com um valor alto.</strong> R$ 5, R$ 10 ou qualquer quantia já aproxima o livro da impressão.</p>
+<div class="campaign-actions">
+<a class="button primary" href="#apoio">Apoiar agora com Pix</a>
+<a class="button share-whatsapp" href="https://wa.me/?text=Estou%20ajudando%20o%20livro%20Muiraquit%C3%A3%3A%20O%20Fragmento%20do%20Sert%C3%A3o%20a%20chegar%20%C3%A0%20impress%C3%A3o.%20A%20campanha%20aceita%20qualquer%20valor%2C%20at%C3%A9%20mesmo%20R%24%205.%20Conhe%C3%A7a%20o%20projeto%2C%20contribua%20ou%20compartilhe%3A%20https%3A%2F%2Funiversomuiraquita.com.br%2F%23apoio" target="_blank" rel="noreferrer">Compartilhar no WhatsApp</a>
+</div>
+</div>
+<div class="campaign-timeline" aria-label="Etapas da primeira edição">
+<div class="done"><i>✓</i><span>Orçamento</span><small>Concluído</small></div>
+<div class="current"><i>2</i><span>Arrecadação</span><small>Etapa atual</small></div>
+<div><i>3</i><span>Impressão</span><small>Próxima etapa</small></div>
+<div><i>4</i><span>Lançamento</span><small>Entrega dos livros</small></div>
+</div>
 <div class="budget-card" aria-labelledby="budget-title">
 <div class="budget-heading">
 <div>
-<span>Meta-base provisória</span>
+<span>Como a meta-base foi calculada</span>
 <strong id="budget-title">R$ 5.946,88</strong>
 </div>
 <b>FRETE PENDENTE</b>
@@ -309,24 +347,7 @@
 <p class="budget-specs"><strong>Especificações:</strong> 14 × 21 cm · 308 páginas · miolo PB em Avena 80 g · capa Triplex 250 g com laminação fosca · sem orelhas · colagem PUR.</p>
 <p class="budget-source">Orçamentos recebidos em 24/08/2026. O PDF formal foi solicitado à gráfica e será publicado aqui assim que for recebido. O valor final ainda incluirá o frete.</p>
 </div>
-<div class="progress-card">
-<div class="progress-top">
-<span>Preparação da campanha</span>
-<b>ORÇAMENTO-BASE RECEBIDO</b>
-</div>
-<div class="progress-bar">
-<i>
-</i>
-</div>
-<div class="progress-steps">
-<span class="active">Orçamento-base</span>
-<span>Frete</span>
-<span>Pré-venda</span>
-<span>Impressão</span>
-</div>
-</div>
-<a class="button primary" href="#apoio">Quero apoiar agora</a>
-<small>O apoio atual é voluntário. A reserva de exemplares será aberta junto com a pré-venda.</small>
+<p class="campaign-footnote">A meta-base cobre a impressão de 200 exemplares e os serviços editoriais. O frete será acrescentado assim que for confirmado. O apoio atual é voluntário e não representa reserva de exemplar; a pré-venda será aberta separadamente.</p>
 </div>
 </section>
 <section class="support section" id="apoio">
@@ -474,6 +495,29 @@
 </main>
 <script>
   (function () {
+    var campaign = document.querySelector('.campaign-card');
+    if (campaign) {
+      var goal = Number(campaign.getAttribute('data-goal')) || 0;
+      var raised = Number(campaign.getAttribute('data-raised')) || 0;
+      var supporters = Number(campaign.getAttribute('data-supporters')) || 0;
+      var remaining = Math.max(goal - raised, 0);
+      var percent = goal > 0 ? Math.min((raised / goal) * 100, 100) : 0;
+      var money = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' });
+      var raisedElement = document.getElementById('campaign-title');
+      var supportersElement = document.getElementById('campaign-supporters');
+      var remainingElement = document.getElementById('campaign-remaining');
+      var percentElement = document.getElementById('campaign-percent');
+      var fillElement = document.getElementById('campaign-progress-fill');
+      var progressElement = campaign.querySelector('.campaign-progress');
+
+      if (raisedElement) raisedElement.textContent = money.format(raised);
+      if (supportersElement) supportersElement.textContent = supporters;
+      if (remainingElement) remainingElement.textContent = remaining > 0 ? 'Ainda faltam ' + money.format(remaining) : 'Meta-base alcançada!';
+      if (percentElement) percentElement.textContent = percent.toLocaleString('pt-BR', { maximumFractionDigits: 1 }) + '% da meta alcançada';
+      if (fillElement) fillElement.style.width = percent + '%';
+      if (progressElement) progressElement.setAttribute('aria-valuenow', String(raised));
+    }
+
     var button = document.getElementById('copy-pix');
     if (button) {
       button.addEventListener('click', function () {
