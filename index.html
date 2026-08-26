@@ -54,6 +54,21 @@
     @media (max-width: 650px) {
       html { scroll-padding-top: 128px; }
       .site-header.is-stuck .brand img { width: 100px; }
+      /* seis itens precisam caber sem rolagem lateral */
+      .site-header nav a {
+        padding-left: 8px;
+        padding-right: 8px;
+        letter-spacing: .05em;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .site-header nav a {
+        padding-left: 6px;
+        padding-right: 6px;
+        font-size: 8px;
+        letter-spacing: .03em;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -92,6 +107,7 @@
 <a href="#universo">O sertão</a>
 <a href="#personagens">A gente</a>
 <a href="#escolas">Escolas</a>
+<a href="#pre-venda">Campanha</a>
 <a class="nav-cta" href="#apoio">Apoiar</a>
 </nav>
 </header>
@@ -526,6 +542,7 @@
 <a href="#universo">O sertão</a>
 <a href="#personagens">A gente</a>
 <a href="#escolas">Escolas</a>
+<a href="#pre-venda">Campanha</a>
 <a href="#apoio">Apoiar</a>
 </div>
 <div>
