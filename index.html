@@ -13,83 +13,6 @@
   <meta property="og:image" content="https://universomuiraquita.com.br/capa-alternativa.webp">
   <link rel="icon" href="pedra.webp">
   <link rel="stylesheet" href="styles.css">
-  <style>
-    /* Menu fixo — acompanha a rolagem */
-    html { scroll-padding-top: 100px; }
-
-    .site-header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      width: 100%;
-      z-index: 60;
-      transition: height .28s ease, background-color .28s ease, border-color .28s ease, box-shadow .28s ease;
-    }
-
-    .site-header.is-stuck {
-      height: 68px;
-      background: rgba(11, 13, 12, .9);
-      -webkit-backdrop-filter: blur(12px);
-      backdrop-filter: blur(12px);
-      border-bottom-color: rgba(238, 231, 216, .22);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, .38);
-    }
-
-    .site-header .brand img { transition: width .28s ease; }
-    .site-header.is-stuck .brand img { width: 122px; }
-
-    @media (max-width: 1000px) {
-      html { scroll-padding-top: 92px; }
-      .site-header {
-        position: sticky;
-        top: 0;
-        left: auto;
-        right: auto;
-      }
-      .site-header.is-stuck { height: auto; }
-      .site-header.is-stuck .brand img { width: 108px; }
-    }
-
-    @media (max-width: 650px) {
-      html { scroll-padding-top: 128px; }
-      .site-header.is-stuck .brand img { width: 100px; }
-
-      /* Menu mobile: mantém os quatro itens legíveis */
-      .site-header nav {
-        gap: 2px;
-        width: 100%;
-      }
-
-      .site-header nav a {
-        flex: 1 1 0;
-        min-width: 0;
-        padding: 10px 6px;
-        font-size: 11px;
-        line-height: 1.1;
-        letter-spacing: .04em;
-        text-align: center;
-        white-space: nowrap;
-      }
-    }
-
-    @media (max-width: 430px) {
-      .site-header nav {
-        gap: 0;
-      }
-
-      .site-header nav a {
-        padding: 9px 4px;
-        font-size: 10px;
-        letter-spacing: .02em;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .site-header,
-      .site-header .brand img { transition: none; }
-    }
-  </style>
 </head>
 <body>
 <link rel="preload" as="image" href="logotipo.webp"/>
@@ -118,8 +41,9 @@
 </a>
 <nav aria-label="Navegação principal">
 <a href="#livro">O livro</a>
+<a href="#universo">O sertão</a>
+<a href="#personagens">A gente</a>
 <a href="#escolas">Escolas</a>
-<a href="#pre-venda">Campanha</a>
 <a class="nav-cta" href="#apoio">Apoiar</a>
 </nav>
 </header>
@@ -554,14 +478,13 @@
 <a href="#universo">O sertão</a>
 <a href="#personagens">A gente</a>
 <a href="#escolas">Escolas</a>
-<a href="#pre-venda">Campanha</a>
 <a href="#apoio">Apoiar</a>
 </div>
 <div>
 <h3>Contato</h3>
 <a href="https://wa.me/5577997026139?text=Ol%C3%A1%21%20Visitei%20o%20site%20Universo%20Muiraquit%C3%A3%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20projeto%20e%20a%20pr%C3%A9-venda%20do%20livro." target="_blank" rel="noreferrer">WhatsApp: (77) 99702-6139</a>
 <a href="mailto:contato@universomuiraquita.com.br">E-mail: contato@universomuiraquita.com.br</a>
-<a href="https://www.instagram.com/universomuiraquita" target="_blank" rel="noreferrer">Instagram</a>
+<a href="https://instagram.com/FaellVieyra.studio" target="_blank" rel="noreferrer">Instagram</a>
 </div>
 <div class="footer-domain">
 <span>ACESSE SEMPRE</span>
@@ -615,24 +538,6 @@
       };
       phone.addEventListener('input', validatePhones);
       confirmation.addEventListener('input', validatePhones);
-    }
-
-    var header = document.querySelector('.site-header');
-    if (header) {
-      var ticking = false;
-      var syncHeader = function () {
-        var scrolled = (window.pageYOffset || document.documentElement.scrollTop) > 24;
-        header.classList.toggle('is-stuck', scrolled);
-        ticking = false;
-      };
-      var onScroll = function () {
-        if (ticking) return;
-        ticking = true;
-        window.requestAnimationFrame(syncHeader);
-      };
-      window.addEventListener('scroll', onScroll, { passive: true });
-      window.addEventListener('resize', onScroll, { passive: true });
-      syncHeader();
     }
   })();
 </script>
