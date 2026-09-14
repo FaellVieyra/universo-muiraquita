@@ -357,17 +357,17 @@
     data-book-price  = valor da pré-venda
     data-updated     = data mostrada no topo do painel
 -->
-<div class="goalchart" data-goal="5946.88" data-raised="295" data-supporters="4" data-preorders="2" data-preorder-target="110" data-book-price="60" data-updated="04/09/2026" aria-labelledby="goalchart-title">
+<div class="goalchart" data-goal="5946.88" data-raised="395" data-supporters="4" data-preorders="3" data-preorder-target="110" data-book-price="60" data-updated="04/09/2026" aria-labelledby="goalchart-title">
 <div class="goalchart-head">
 <p class="goalchart-kicker">Meta da 1ª edição <i>·</i> atualizado em <b id="gc-updated">04/09/2026</b>
 </p>
-<h3 id="goalchart-title">Ainda faltam <b id="gc-remaining">R$ 5.651,88</b> para o livro entrar na gráfica.</h3>
+<h3 id="goalchart-title">Ainda faltam <b id="gc-remaining">R$ 5.551,88</b> para o livro entrar na gráfica.</h3>
 </div>
 <div class="goalchart-plot">
 <div class="gc-labels">
 <div class="gc-left">
 <span>Arrecadado até agora</span>
-<strong id="gc-raised">R$ 295,00</strong>
+<strong id="gc-raised">R$ 395,00</strong>
 </div>
 <div class="gc-right">
 <span>Meta-base</span>
@@ -377,11 +377,11 @@
 <div class="gc-mid" id="gc-mid">
 <div class="gc-gapline">
 <div class="gc-gaplabel">
-<span>falta <b id="gc-gap">R$ 5.651,88</b>
+<span>falta <b id="gc-gap">R$ 5.551,88</b>
 </span>
 </div>
 </div>
-<div class="gc-track" role="img" id="gc-track" aria-label="Arrecadados R$ 295,00 de uma meta-base de R$ 5.946,88">
+<div class="gc-track" role="img" id="gc-track" aria-label="Arrecadados R$ 395,00 de uma meta-base de R$ 5.946,88">
 <i class="gc-fill" id="gc-fill"></i>
 </div>
 <em class="gc-marker" aria-hidden="true">
@@ -394,7 +394,7 @@
 <span>apoios<br/>voluntários</span>
 </div>
 <div class="gc-count gc-preorders">
-<strong id="gc-preorders">2</strong>
+<strong id="gc-preorders">3</strong>
 <span>exemplares<br/>reservados</span>
 </div>
 </div>
@@ -454,6 +454,13 @@
 </details>
 <p class="campaign-footnote">A meta-base cobre a impressão de 200 exemplares e os serviços editoriais. A pré-venda reserva o livro; o apoio voluntário ajuda a viabilizar a impressão, mas não reserva exemplar. A meta estimada de 110 reservas poderá ser ajustada quando o frete da gráfica for confirmado.</p>
 </div>
+</section>
+<section class="section first-readers" id="primeiros-leitores" aria-labelledby="primeiros-leitores-titulo">
+  <div class="section-heading">
+    <p class="eyebrow">Primeira edição</p>
+    <h2 id="primeiros-leitores-titulo">Primeiros leitores da 1ª edição</h2>
+    <p>Quem reservar um exemplar poderá autorizar a divulgação do nome nesta seção, registrando sua participação entre os primeiros leitores da primeira edição de <strong>Muiraquitã</strong>.</p>
+  </div>
 </section>
 <section class="support section" id="apoio">
 <div class="support-intro">
@@ -515,10 +522,13 @@
 </label>
 <label>Valor enviado pelo Pix<input id="support-amount" type="number" min="1" step="0.01" placeholder="R$" required="" name="Valor enviado"/>
 </label>
-<label>Deseja ter seu nome divulgado entre os apoiadores?<select name="Divulgação do nome" required="">
-<option selected="">Sim</option>
-<option>Não, prefiro permanecer anônimo</option>
+<label>Autoriza a divulgação do seu nome no site, inclusive na seção “Primeiros leitores da 1ª edição”?<select name="Autorização para divulgação do nome" required="">
+<option value="sim" selected="">Sim, autorizo a divulgação do meu nome</option>
+<option value="nao">Não, prefiro permanecer anônimo</option>
 </select>
+</label>
+<label>Como deseja que seu nome apareça no site? <small>Preencha somente se autorizou a divulgação</small>
+<input type="text" name="Nome para divulgação no site" placeholder="Ex.: Maria Silva"/>
 </label>
 <input type="hidden" name="Tipo de arquivo" value="Comprovante do Pix"/>
 <label>Comprovante do Pix <small>Imagem ou PDF de até 10 MB</small>
