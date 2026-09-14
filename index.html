@@ -101,11 +101,93 @@
     }
     .first-readers .readers-grid:empty { display: none; }
 
-    /* Campos condicionais do formulário */
-    #individual-name-authorization[hidden],
-    #display-name-field[hidden],
-    #partner-fields[hidden] {
-      display: none !important;
+    /* Parceiros culturais — tipografia e proporções alinhadas ao padrão do site */
+    .cultural-partners .partner-intro {
+      max-width: 820px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .cultural-partners .partner-grid {
+      margin: 28px auto 0;
+      max-width: 980px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+    }
+    .cultural-partners .partner-card {
+      min-height: 210px;
+      border: 1px solid rgba(238, 231, 216, .16);
+      border-radius: 14px;
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 10px;
+      background: rgba(255,255,255,.015);
+    }
+    .cultural-partners .partner-logo {
+      width: 100%;
+      height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 2px;
+    }
+    .cultural-partners .partner-logo img {
+      max-width: 170px;
+      max-height: 72px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+    .cultural-partners .partner-card strong {
+      display: block;
+      font-size: 1.08rem;
+      line-height: 1.35;
+    }
+    .cultural-partners .partner-card span {
+      display: block;
+      max-width: 34ch;
+      font-size: .95rem;
+      line-height: 1.55;
+      opacity: .82;
+    }
+    .cultural-partners .partner-card.is-invite {
+      border-style: solid;
+    }
+    .cultural-partners .partner-card.is-invite .partner-mark {
+      font-size: 2.1rem;
+      line-height: 1;
+      opacity: .55;
+      margin-bottom: 2px;
+    }
+    .cultural-partners .partner-card .button {
+      margin-top: 4px;
+      min-width: 0;
+    }
+    .partner-fields[hidden] { display: none !important; }
+    .partner-note {
+      margin: -4px 0 18px;
+      font-size: .86rem;
+      opacity: .72;
+    }
+
+    @media (max-width: 700px) {
+      .cultural-partners .partner-grid {
+        grid-template-columns: 1fr;
+      }
+      .cultural-partners .partner-card {
+        min-height: auto;
+        padding: 22px 18px;
+      }
+      .cultural-partners .partner-card strong {
+        font-size: 1rem;
+      }
+      .cultural-partners .partner-card span {
+        font-size: .92rem;
+      }
     }
   </style>
 </head>
@@ -506,7 +588,7 @@
 </section>
 
 <section class="section cultural-partners" id="parceiros-culturais" aria-labelledby="parceiros-culturais-titulo">
-  <div class="partner-intro">
+  <div class="section-heading partner-intro">
     <p class="eyebrow">Apoio institucional à primeira edição</p>
     <h2 id="parceiros-culturais-titulo">Parceiros culturais da 1ª edição</h2>
     <p>Marcas, empresas, profissionais e iniciativas que apoiam a realização da primeira edição de <strong>Muiraquitã</strong> e contribuem para fortalecer a produção cultural no Oeste da Bahia.</p>
