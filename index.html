@@ -76,7 +76,7 @@
       .site-header .brand img { transition: none; }
     }
 
-    /* Primeiros apoiadores — grade que se adapta à quantidade de nomes */
+    /* Primeiros leitores — grade que se adapta à quantidade de nomes */
     .first-readers .readers-grid {
       list-style: none;
       margin: 22px 0 0;
@@ -480,10 +480,10 @@
 <p class="campaign-footnote">A meta-base cobre a impressão de 200 exemplares e os serviços editoriais. A pré-venda reserva o livro; o apoio voluntário ajuda a viabilizar a impressão, mas não reserva exemplar. A meta estimada de 110 reservas poderá ser ajustada quando o frete da gráfica for confirmado.</p>
 </div>
 </section>
-<section class="section first-readers" id="primeiros-leitores" aria-labelledby="primeiros-leitores-titulo">
+<section class="section first-readers" id="primeiros-apoiadores" aria-labelledby="primeiros-apoiadores-titulo">
   <div class="section-heading">
     <p class="eyebrow">Primeira edição</p>
-    <h2 id="primeiros-leitores-titulo">Primeiros apoiadores da 1ª edição</h2>
+    <h2 id="primeiros-apoiadores-titulo">Primeiros apoiadores da 1ª edição</h2>
     <p>Quem participar da campanha poderá autorizar a divulgação do nome nesta seção, registrando sua contribuição para a primeira edição de <strong>Muiraquitã</strong>, seja pela pré-venda ou pelo apoio à impressão.</p>
   </div>
   <ul class="readers-grid" aria-label="Primeiros apoiadores com divulgação autorizada">
@@ -496,6 +496,22 @@
       <span>Apoio à impressão</span>
     </li>
   </ul>
+</section>
+
+<section class="section cultural-partners" id="parceiros-culturais" aria-labelledby="parceiros-culturais-titulo">
+  <div class="partner-intro">
+    <p class="eyebrow">Apoio institucional à primeira edição</p>
+    <h2 id="parceiros-culturais-titulo">Parceiros culturais da 1ª edição</h2>
+    <p>Marcas, empresas, profissionais e iniciativas que apoiam a realização da primeira edição de <strong>Muiraquitã</strong> e contribuem para fortalecer a produção cultural no Oeste da Bahia.</p>
+  </div>
+  <div class="partner-grid" aria-label="Parceiros culturais da primeira edição">
+    <article class="partner-card is-invite">
+      <div class="partner-mark" aria-hidden="true">+</div>
+      <strong>Sua marca pode apoiar esta edição</strong>
+      <span>As marcas confirmadas serão exibidas aqui em formato padronizado, com logotipo, nome e identificação como Parceiro Cultural.</span>
+      <a class="button ghost" href="#apoio">Conhecer a parceria</a>
+    </article>
+  </div>
 </section>
 <section class="support section" id="apoio">
 <div class="support-intro">
@@ -553,18 +569,93 @@
 <option value="pre-venda">Comprar 1 exemplar na pré-venda — R$ 60,00</option>
 <option value="apoio-impressao">Apoiar a impressão com qualquer valor — sem exemplar</option>
 <option value="apoio-escolas">Apoiar a distribuição em escolas e bibliotecas — sem exemplar</option>
+<option value="parceiro-cultural">Tornar minha empresa ou marca Parceiro Cultural</option>
 </select>
 </label>
 <label>Valor enviado pelo Pix<input id="support-amount" type="number" min="1" step="0.01" placeholder="R$" required="" name="Valor enviado"/>
 </label>
-<label>Autoriza a divulgação do seu nome no site, inclusive na seção “Primeiros apoiadores da 1ª edição”?<select id="allow-name" name="Autorização para divulgação do nome" required="">
-<option value="sim" selected="">Sim, autorizo a divulgação do meu nome</option>
+<label id="individual-name-authorization">Autoriza a divulgação do seu nome no site, inclusive na seção “Primeiros apoiadores da 1ª edição”?<select id="allow-name" name="Autorização para divulgação do nome" required="">
+<option value="" disabled="" selected="">Selecione uma opção</option>
+<option value="sim">Sim, autorizo a divulgação do meu nome</option>
 <option value="nao">Não, prefiro permanecer anônimo</option>
 </select>
 </label>
-<label id="display-name-field">Como deseja que seu nome apareça no site? <small>Preencha somente se autorizou a divulgação</small>
+<label id="display-name-field" hidden>Como deseja que seu nome apareça no site? <small>Nome completo, primeiro e último nome ou apelido — como preferir</small>
 <input type="text" name="Nome para divulgação no site" placeholder="Ex.: Maria Silva"/>
 </label>
+
+<div class="partner-fields" id="partner-fields" hidden>
+  <p class="form-step"><strong>Cadastro do Parceiro Cultural</strong><br/>Estes campos aparecem somente para empresas, marcas, profissionais ou iniciativas que desejem apoiar institucionalmente a primeira edição.</p>
+
+  <label>Tipo de parceiro
+    <select name="Tipo de parceiro cultural" data-partner-required>
+      <option value="" disabled="" selected="">Selecione</option>
+      <option>Empresa ou comércio</option>
+      <option>MEI ou profissional autônomo</option>
+      <option>Marca independente</option>
+      <option>Instituição ou iniciativa cultural</option>
+      <option>Outro</option>
+    </select>
+  </label>
+
+  <label>Nome da empresa, marca ou iniciativa
+    <input type="text" name="Nome da empresa ou marca" placeholder="Ex.: Empresa Exemplo" data-partner-required/>
+  </label>
+
+  <label>Responsável pela parceria
+    <small>Pessoa autorizada a confirmar o apoio e o uso da marca</small>
+    <input type="text" name="Responsável pela parceria" data-partner-required/>
+  </label>
+
+  <div class="form-row">
+    <label>CNPJ
+      <small>Opcional</small>
+      <input type="text" name="CNPJ" inputmode="numeric" placeholder="00.000.000/0000-00"/>
+    </label>
+    <label>Cidade / UF
+      <input type="text" name="Cidade e UF do parceiro" placeholder="Ex.: Cotegipe / BA" data-partner-required/>
+    </label>
+  </div>
+
+  <label>Site, Instagram ou página oficial
+    <small>Opcional — informe apenas um endereço oficial da marca</small>
+    <input type="text" name="Site ou rede social da marca" placeholder="@suaempresa ou https://..."/>
+  </label>
+
+  <label>Como deseja que o nome da marca apareça no site?
+    <input type="text" name="Nome da marca para divulgação" placeholder="Ex.: Nome Comercial" data-partner-required/>
+  </label>
+
+  <label>Deseja incluir exemplar(es) do livro nesta parceria?
+    <select id="partner-books" name="Exemplares incluídos na parceria" data-partner-required>
+      <option value="0" selected="">Não — o valor será integralmente destinado ao apoio cultural</option>
+      <option value="1">Sim — 1 exemplar (R$ 60,00)</option>
+      <option value="2">Sim — 2 exemplares (R$ 120,00)</option>
+      <option value="3">Sim — 3 exemplares (R$ 180,00)</option>
+      <option value="4">Sim — 4 exemplares (R$ 240,00)</option>
+      <option value="5">Sim — 5 exemplares (R$ 300,00)</option>
+    </select>
+    <small>O apoio cultural e a pré-venda são registrados separadamente. Para quantidade maior, combine diretamente com o autor.</small>
+  </label>
+
+  <p class="partner-note" id="partner-value-note">O valor total enviado no Pix será registrado como apoio cultural. Se houver exemplares reservados, R$ 60,00 por exemplar serão contabilizados como pré-venda e o restante como apoio cultural.</p>
+
+  <label>Logotipo oficial da marca
+    <small>PNG, JPG ou PDF. Use o arquivo que você autoriza a ser exibido no site.</small>
+    <input type="file" accept="image/png,image/jpeg,application/pdf" name="Logotipo oficial da marca" data-partner-required/>
+  </label>
+
+  <label class="check">
+    <input type="checkbox" name="Autorização de uso da marca" value="Sim" data-partner-required/>
+    Confirmo que estou autorizado(a) a representar esta empresa, marca ou iniciativa e autorizo o uso do nome e do logotipo fornecidos exclusivamente para divulgação da parceria cultural da primeira edição de Muiraquitã.
+  </label>
+
+  <label class="check">
+    <input type="checkbox" name="Aceite das regras do Parceiro Cultural" value="Sim" data-partner-required/>
+    Li e concordo com as regras dos Parceiros Culturais apresentadas na seção “Perguntas”, incluindo o padrão de exibição da marca, a ausência de participação editorial ou autoral e a inexistência de promessa de retorno comercial.
+  </label>
+</div>
+
 <input type="hidden" name="Tipo de arquivo" value="Comprovante do Pix"/>
 <label>Comprovante do Pix <small>Imagem ou PDF de até 10 MB</small>
 <input type="file" accept="image/png,image/jpeg,application/pdf" required="" name="attachment"/>
@@ -608,6 +699,21 @@
 <details>
 <summary>Qual é a diferença entre pré-venda e apoio?</summary>
 <p>A pré-venda custa R$ 60,00 e reserva um exemplar da 1ª edição em seu nome. O apoio voluntário pode ser de qualquer valor e ajuda a pagar a impressão, mas não reserva livro. A retirada em Cotegipe é gratuita; para outras cidades, o frete será calculado separadamente.</p>
+</details>
+<details id="faq-parceiros-culturais">
+<summary>Como funciona para empresas e marcas parceiras?</summary>
+<p>Empresas, comércios, MEIs, profissionais autônomos, marcas e iniciativas podem apoiar a primeira edição de <strong>Muiraquitã</strong> como <strong>Parceiros Culturais</strong>. Após a confirmação do apoio e da autorização de uso da marca, o parceiro poderá ser divulgado na seção “Parceiros culturais da 1ª edição”, com logotipo, nome e identificação padronizada. O tamanho e a apresentação das marcas seguem o mesmo padrão visual para preservar a identidade editorial do site e evitar diferenciação excessiva entre parceiros.</p>
+<p>O apoio cultural contribui para os custos de produção e circulação da primeira edição, mas não concede participação em direitos autorais, propriedade intelectual, conteúdo da obra, decisões editoriais ou receitas futuras. Também não cria exclusividade comercial, direito a publicidade ilimitada, presença em capa ou miolo do livro, nem obrigação de publicações adicionais em redes sociais, salvo acordo específico feito separadamente e por escrito.</p>
+<p>O parceiro deve fornecer material oficial da marca e declarar que possui autorização para seu uso. A presença da marca identifica apoio cultural à edição e não representa endosso do autor a todos os produtos, serviços ou posicionamentos do parceiro. O projeto poderá recusar ou retirar uma parceria em caso de uso indevido do nome de <strong>Muiraquitã</strong>, informação falsa, conteúdo ilegal ou situação que comprometa de forma relevante a integridade do projeto.</p>
+<p>A identificação como Parceiro Cultural ficará vinculada ao registro público da primeira edição no site enquanto essa página histórica estiver disponível. Alterações de nome, logotipo ou link poderão ser solicitadas posteriormente. A parceria não garante número de acessos, vendas, seguidores ou qualquer retorno comercial específico e não constitui investimento, sociedade ou aquisição de participação no projeto.</p>
+</details>
+<details>
+<summary>O apoio como Parceiro Cultural inclui um exemplar do livro?</summary>
+<p>Não automaticamente. O apoio cultural e a pré-venda são modalidades distintas. A empresa pode optar por destinar todo o valor ao apoio cultural ou incluir um ou mais exemplares na mesma contribuição. Quando houver livros reservados, <strong>R$ 60,00 por exemplar</strong> serão registrados como pré-venda e o valor restante como apoio cultural. A quantidade escolhida ficará registrada no formulário de confirmação.</p>
+</details>
+<details>
+<summary>Existe valor mínimo para ser Parceiro Cultural?</summary>
+<p>As condições podem variar conforme a campanha e serão confirmadas antes da divulgação da marca. O envio do formulário, por si só, não garante a publicação do logotipo: a parceria passa a valer após a confirmação do apoio, dos dados enviados e da autorização de uso da marca.</p>
 </details>
 <details>
 <summary>Como levar Muiraquitã para uma escola ou biblioteca?</summary>
@@ -757,17 +863,74 @@
 </script>
 <script>
   (function () {
-    var sel = document.getElementById('allow-name');
-    var campo = document.getElementById('display-name-field');
-    if (!sel || !campo) return;
-    function alterna() {
-      var mostrar = sel.value === 'sim';
-      campo.hidden = !mostrar;
-      var inp = campo.querySelector('input');
-      if (inp && !mostrar) inp.value = '';
+    var supportKind = document.getElementById('support-kind');
+    var allowName = document.getElementById('allow-name');
+    var displayNameField = document.getElementById('display-name-field');
+    var individualAuthorization = document.getElementById('individual-name-authorization');
+    var partnerFields = document.getElementById('partner-fields');
+    var partnerBooks = document.getElementById('partner-books');
+    var supportAmount = document.getElementById('support-amount');
+
+    function syncDisplayName() {
+      if (!allowName || !displayNameField) return;
+      var isPartner = supportKind && supportKind.value === 'parceiro-cultural';
+      var show = !isPartner && allowName.value === 'sim';
+      displayNameField.hidden = !show;
+      var input = displayNameField.querySelector('input');
+      if (input) {
+        input.required = show;
+        if (!show) input.value = '';
+      }
     }
-    sel.addEventListener('change', alterna);
-    alterna();
+
+    function syncPartnerFields() {
+      if (!supportKind || !partnerFields) return;
+      var isPartner = supportKind.value === 'parceiro-cultural';
+      partnerFields.hidden = !isPartner;
+
+      Array.prototype.forEach.call(partnerFields.querySelectorAll('[data-partner-required]'), function (field) {
+        field.required = isPartner;
+        if (!isPartner) {
+          if (field.type === 'checkbox') field.checked = false;
+          else if (field.tagName === 'SELECT') field.selectedIndex = 0;
+          else if (field.type !== 'file') field.value = '';
+        }
+      });
+
+      if (individualAuthorization) individualAuthorization.hidden = isPartner;
+      if (allowName) {
+        allowName.required = !isPartner;
+        if (isPartner) allowName.value = '';
+      }
+
+      syncDisplayName();
+      validateAmount();
+    }
+
+    function validateAmount() {
+      if (!supportKind || !supportAmount) return;
+      var amount = Number(supportAmount.value) || 0;
+      var minimum = 0;
+
+      if (supportKind.value === 'pre-venda') {
+        minimum = 60;
+      } else if (supportKind.value === 'parceiro-cultural' && partnerBooks) {
+        minimum = (Number(partnerBooks.value) || 0) * 60;
+      }
+
+      supportAmount.setCustomValidity(amount < minimum
+        ? 'O valor informado é menor que o necessário para a quantidade de exemplares reservados.'
+        : '');
+    }
+
+    if (allowName) allowName.addEventListener('change', syncDisplayName);
+    if (supportKind) supportKind.addEventListener('change', syncPartnerFields);
+    if (partnerBooks) partnerBooks.addEventListener('change', validateAmount);
+    if (supportAmount) supportAmount.addEventListener('input', validateAmount);
+
+    syncPartnerFields();
+    syncDisplayName();
+    validateAmount();
   })();
 </script>
 </body>
