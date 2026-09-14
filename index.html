@@ -174,6 +174,50 @@
     #display-name-field[hidden] {
       display: none !important;
     }
+
+    .supporter-type {
+      margin: 0 0 22px;
+      padding: 0;
+      border: 0;
+    }
+    .supporter-type > legend {
+      margin-bottom: 10px;
+      font-size: .78rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .supporter-type-options {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .supporter-type-option {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0;
+      padding: 12px 14px;
+      border: 1px solid var(--line, rgba(238,231,216,.22));
+      cursor: pointer;
+    }
+    .supporter-type-option input {
+      margin: 0;
+      width: auto;
+      flex: 0 0 auto;
+    }
+    .supporter-type-option span {
+      font-size: .95rem;
+    }
+    .person-fields[hidden],
+    .company-fields[hidden] {
+      display: none !important;
+    }
+
+    @media (max-width: 560px) {
+      .supporter-type-options {
+        grid-template-columns: 1fr;
+      }
+    }
     .partner-note {
       margin: -4px 0 18px;
       font-size: .86rem;
@@ -645,45 +689,67 @@
 <input type="hidden" name="_subject" value="Nova pré-venda ou apoio ao projeto Muiraquitã"/>
 <input type="hidden" name="_template" value="table"/>
 <input type="text" class="honey" tabindex="-1" autoComplete="off" name="_honey"/>
-<p class="form-step">Escolha a modalidade, realize o Pix e envie seus dados com o comprovante.</p>
-<label>Nome completo<input type="text" required="" name="Nome"/>
-</label>
-<div class="form-row">
-<label>WhatsApp ou telefone <small>Digite com DDD</small>
-<input id="contact-phone" type="tel" inputMode="tel" placeholder="(77) 99999-9999" required="" name="WhatsApp ou telefone"/>
-</label>
-<label>Confirme o WhatsApp ou telefone <small>Digite novamente para evitar erros</small>
-<input id="confirm-phone" type="tel" inputMode="tel" placeholder="(77) 99999-9999" required="" name="Confirmação do telefone"/>
-</label>
-</div>
-<label>E-mail <small>Opcional — preencha somente se utiliza</small>
-<input type="email" placeholder="seunome@exemplo.com" name="email"/>
-</label>
-<label>O que deseja fazer?<select id="support-kind" name="Modalidade" required="">
-<option value="" disabled="" selected="">Selecione uma opção</option>
-<option value="pre-venda">Comprar 1 exemplar na pré-venda — R$ 60,00</option>
-<option value="apoio-impressao">Apoiar a impressão com qualquer valor — sem exemplar</option>
-<option value="apoio-escolas">Apoiar a distribuição em escolas e bibliotecas — sem exemplar</option>
-<option value="parceiro-cultural">Tornar minha empresa ou marca Parceiro Cultural</option>
-</select>
-</label>
-<label>Valor enviado pelo Pix<input id="support-amount" type="number" min="1" step="0.01" placeholder="R$" required="" name="Valor enviado"/>
-</label>
-<label id="individual-name-authorization">Autoriza a divulgação do seu nome no site, inclusive na seção “Primeiros apoiadores da 1ª edição”?<select id="allow-name" name="Autorização para divulgação do nome" required="">
-<option value="" disabled="" selected="">Selecione uma opção</option>
-<option value="sim">Sim, autorizo a divulgação do meu nome</option>
-<option value="nao">Não, prefiro permanecer anônimo</option>
-</select>
-</label>
-<label id="display-name-field" hidden>Como deseja que seu nome apareça no site? <small>Nome completo, primeiro e último nome ou apelido — como preferir</small>
-<input type="text" name="Nome para divulgação no site" placeholder="Ex.: Maria Silva"/>
-</label>
+<p class="form-step">Escolha como deseja participar, realize o Pix e envie seus dados com o comprovante.</p>
 
-<div class="partner-fields" id="partner-fields" hidden>
-  <p class="form-step"><strong>Cadastro do Parceiro Cultural</strong><br/>Estes campos aparecem somente para empresas, marcas, profissionais ou iniciativas que desejem apoiar institucionalmente a primeira edição.</p>
+<fieldset class="supporter-type">
+  <legend>Você está apoiando como:</legend>
+  <div class="supporter-type-options">
+    <label class="supporter-type-option">
+      <input type="radio" name="Tipo de apoiador" value="pessoa-fisica" id="supporter-person" required/>
+      <span>Pessoa física</span>
+    </label>
+    <label class="supporter-type-option">
+      <input type="radio" name="Tipo de apoiador" value="empresa-marca" id="supporter-company" required/>
+      <span>Empresa / Marca</span>
+    </label>
+  </div>
+</fieldset>
+
+<div class="person-fields" id="person-fields" hidden>
+  <label>Nome completo<input type="text" name="Nome" data-person-required/>
+  </label>
+  <div class="form-row">
+    <label>WhatsApp ou telefone <small>Digite com DDD</small>
+      <input id="contact-phone" type="tel" inputMode="tel" placeholder="(77) 99999-9999" name="WhatsApp ou telefone" data-person-required/>
+    </label>
+    <label>Confirme o WhatsApp ou telefone <small>Digite novamente para evitar erros</small>
+      <input id="confirm-phone" type="tel" inputMode="tel" placeholder="(77) 99999-9999" name="Confirmação do telefone" data-person-required/>
+    </label>
+  </div>
+  <label>E-mail <small>Opcional — preencha somente se utiliza</small>
+    <input type="email" placeholder="seunome@exemplo.com" name="email"/>
+  </label>
+  <label>O que deseja fazer?<select id="support-kind" name="Modalidade" data-person-required>
+    <option value="" disabled="" selected="">Selecione uma opção</option>
+    <option value="pre-venda">Comprar 1 exemplar na pré-venda — R$ 60,00</option>
+    <option value="apoio-impressao">Apoiar a impressão com qualquer valor — sem exemplar</option>
+    <option value="apoio-escolas">Apoiar a distribuição em escolas e bibliotecas — sem exemplar</option>
+  </select>
+  </label>
+</div>
+
+<div class="company-fields" id="company-fields" hidden>
+  <label>Nome da empresa, marca ou iniciativa
+    <input type="text" name="Nome da empresa ou marca" placeholder="Ex.: Empresa Exemplo" data-company-required/>
+  </label>
+
+  <label>Nome da pessoa responsável
+    <small>Pessoa autorizada a confirmar o apoio e o uso da marca</small>
+    <input type="text" name="Responsável pela parceria" data-company-required/>
+  </label>
+
+  <div class="form-row">
+    <label>WhatsApp ou telefone <small>Digite com DDD</small>
+      <input id="company-phone" type="tel" inputMode="tel" placeholder="(77) 99999-9999" name="WhatsApp ou telefone da empresa" data-company-required/>
+    </label>
+    <label>E-mail
+      <small>Opcional</small>
+      <input type="email" placeholder="contato@empresa.com.br" name="E-mail da empresa"/>
+    </label>
+  </div>
 
   <label>Tipo de parceiro
-    <select name="Tipo de parceiro cultural" data-partner-required>
+    <select name="Tipo de parceiro cultural" data-company-required>
       <option value="" disabled="" selected="">Selecione</option>
       <option>Empresa ou comércio</option>
       <option>MEI ou profissional autônomo</option>
@@ -693,22 +759,13 @@
     </select>
   </label>
 
-  <label>Nome da empresa, marca ou iniciativa
-    <input type="text" name="Nome da empresa ou marca" placeholder="Ex.: Empresa Exemplo" data-partner-required/>
-  </label>
-
-  <label>Responsável pela parceria
-    <small>Pessoa autorizada a confirmar o apoio e o uso da marca</small>
-    <input type="text" name="Responsável pela parceria" data-partner-required/>
-  </label>
-
   <div class="form-row">
     <label>CNPJ
       <small>Opcional</small>
       <input type="text" name="CNPJ" inputmode="numeric" placeholder="00.000.000/0000-00"/>
     </label>
     <label>Cidade / UF
-      <input type="text" name="Cidade e UF do parceiro" placeholder="Ex.: Cotegipe / BA" data-partner-required/>
+      <input type="text" name="Cidade e UF do parceiro" placeholder="Ex.: Cotegipe / BA" data-company-required/>
     </label>
   </div>
 
@@ -718,11 +775,11 @@
   </label>
 
   <label>Como deseja que o nome da marca apareça no site?
-    <input type="text" name="Nome da marca para divulgação" placeholder="Ex.: Nome Comercial" data-partner-required/>
+    <input type="text" name="Nome da marca para divulgação" placeholder="Ex.: Nome Comercial" data-company-required/>
   </label>
 
   <label>Deseja incluir exemplar(es) do livro nesta parceria?
-    <select id="partner-books" name="Exemplares incluídos na parceria" data-partner-required>
+    <select id="partner-books" name="Exemplares incluídos na parceria" data-company-required>
       <option value="0" selected="">Não — o valor será integralmente destinado ao apoio cultural</option>
       <option value="1">Sim — 1 exemplar (R$ 60,00)</option>
       <option value="2">Sim — 2 exemplares (R$ 120,00)</option>
@@ -737,19 +794,31 @@
 
   <label>Logotipo oficial da marca
     <small>PNG, JPG ou PDF. Use o arquivo que você autoriza a ser exibido no site.</small>
-    <input type="file" accept="image/png,image/jpeg,application/pdf" name="Logotipo oficial da marca" data-partner-required/>
+    <input type="file" accept="image/png,image/jpeg,application/pdf" name="Logotipo oficial da marca" data-company-required/>
   </label>
 
   <label class="check">
-    <input type="checkbox" name="Autorização de uso da marca" value="Sim" data-partner-required/>
+    <input type="checkbox" name="Autorização de uso da marca" value="Sim" data-company-required/>
     Confirmo que estou autorizado(a) a representar esta empresa, marca ou iniciativa e autorizo o uso do nome e do logotipo fornecidos exclusivamente para divulgação da parceria cultural da primeira edição de Muiraquitã.
   </label>
 
   <label class="check">
-    <input type="checkbox" name="Aceite das regras do Parceiro Cultural" value="Sim" data-partner-required/>
+    <input type="checkbox" name="Aceite das regras do Parceiro Cultural" value="Sim" data-company-required/>
     Li e concordo com as regras dos Parceiros Culturais apresentadas na seção “Perguntas”, incluindo o padrão de exibição da marca, a ausência de participação editorial ou autoral e a inexistência de promessa de retorno comercial.
   </label>
 </div>
+
+<label>Valor enviado pelo Pix<input id="support-amount" type="number" min="1" step="0.01" placeholder="R$" required="" name="Valor enviado"/>
+</label>
+<label id="individual-name-authorization">Autoriza a divulgação do seu nome no site, inclusive na seção “Primeiros apoiadores da 1ª edição”?<select id="allow-name" name="Autorização para divulgação do nome" required="">
+<option value="" disabled="" selected="">Selecione uma opção</option>
+<option value="sim">Sim, autorizo a divulgação do meu nome</option>
+<option value="nao">Não, prefiro permanecer anônimo</option>
+</select>
+</label>
+<label id="display-name-field" hidden>Como deseja que seu nome apareça no site? <small>Nome completo, primeiro e último nome ou apelido — como preferir</small>
+<input type="text" name="Nome para divulgação no site" placeholder="Ex.: Maria Silva"/>
+</label>
 
 <input type="hidden" name="Tipo de arquivo" value="Comprovante do Pix"/>
 <label>Comprovante do Pix <small>Imagem ou PDF de até 10 MB</small>
@@ -958,19 +1027,40 @@
 </script>
 <script>
   (function () {
+    var personRadio = document.getElementById('supporter-person');
+    var companyRadio = document.getElementById('supporter-company');
+    var personFields = document.getElementById('person-fields');
+    var companyFields = document.getElementById('company-fields');
+
     var supportKind = document.getElementById('support-kind');
     var allowName = document.getElementById('allow-name');
     var displayNameField = document.getElementById('display-name-field');
     var individualAuthorization = document.getElementById('individual-name-authorization');
-    var partnerFields = document.getElementById('partner-fields');
+
     var partnerBooks = document.getElementById('partner-books');
     var supportAmount = document.getElementById('support-amount');
 
+    var phone = document.getElementById('contact-phone');
+    var confirmation = document.getElementById('confirm-phone');
+
+    function setRequired(container, selector, active) {
+      if (!container) return;
+      Array.prototype.forEach.call(container.querySelectorAll(selector), function (field) {
+        field.required = active;
+        if (!active) {
+          if (field.type === 'checkbox' || field.type === 'radio') field.checked = false;
+          else if (field.tagName === 'SELECT') field.selectedIndex = 0;
+          else if (field.type !== 'file') field.value = '';
+        }
+      });
+    }
+
     function syncDisplayName() {
       if (!allowName || !displayNameField) return;
-      var isPartner = supportKind && supportKind.value === 'parceiro-cultural';
-      var show = !isPartner && allowName.value === 'sim';
+      var isPerson = !!(personRadio && personRadio.checked);
+      var show = isPerson && allowName.value === 'sim';
       displayNameField.hidden = !show;
+
       var input = displayNameField.querySelector('input');
       if (input) {
         input.required = show;
@@ -978,38 +1068,47 @@
       }
     }
 
-    function syncPartnerFields() {
-      if (!supportKind || !partnerFields) return;
-      var isPartner = supportKind.value === 'parceiro-cultural';
-      partnerFields.hidden = !isPartner;
+    function syncSupporterType() {
+      var isPerson = !!(personRadio && personRadio.checked);
+      var isCompany = !!(companyRadio && companyRadio.checked);
 
-      Array.prototype.forEach.call(partnerFields.querySelectorAll('[data-partner-required]'), function (field) {
-        field.required = isPartner;
-        if (!isPartner) {
-          if (field.type === 'checkbox') field.checked = false;
-          else if (field.tagName === 'SELECT') field.selectedIndex = 0;
-          else if (field.type !== 'file') field.value = '';
-        }
-      });
+      if (personFields) personFields.hidden = !isPerson;
+      if (companyFields) companyFields.hidden = !isCompany;
 
-      if (individualAuthorization) individualAuthorization.hidden = isPartner;
+      setRequired(personFields, '[data-person-required]', isPerson);
+      setRequired(companyFields, '[data-company-required]', isCompany);
+
+      if (individualAuthorization) individualAuthorization.hidden = !isPerson;
+
       if (allowName) {
-        allowName.required = !isPartner;
-        if (isPartner) allowName.value = '';
+        allowName.required = isPerson;
+        if (!isPerson) allowName.value = '';
       }
 
       syncDisplayName();
+      validatePhones();
       validateAmount();
     }
 
+    function validatePhones() {
+      if (!phone || !confirmation) return;
+      if (!(personRadio && personRadio.checked)) {
+        confirmation.setCustomValidity('');
+        return;
+      }
+      var digits = function (value) { return value.replace(/\D/g, ''); };
+      var different = digits(phone.value) !== digits(confirmation.value);
+      confirmation.setCustomValidity(different ? 'Os números estão diferentes. Confira e digite novamente.' : '');
+    }
+
     function validateAmount() {
-      if (!supportKind || !supportAmount) return;
+      if (!supportAmount) return;
       var amount = Number(supportAmount.value) || 0;
       var minimum = 0;
 
-      if (supportKind.value === 'pre-venda') {
+      if (personRadio && personRadio.checked && supportKind && supportKind.value === 'pre-venda') {
         minimum = 60;
-      } else if (supportKind.value === 'parceiro-cultural' && partnerBooks) {
+      } else if (companyRadio && companyRadio.checked && partnerBooks) {
         minimum = (Number(partnerBooks.value) || 0) * 60;
       }
 
@@ -1018,12 +1117,18 @@
         : '');
     }
 
+    if (personRadio) personRadio.addEventListener('change', syncSupporterType);
+    if (companyRadio) companyRadio.addEventListener('change', syncSupporterType);
+
     if (allowName) allowName.addEventListener('change', syncDisplayName);
-    if (supportKind) supportKind.addEventListener('change', syncPartnerFields);
+    if (supportKind) supportKind.addEventListener('change', validateAmount);
     if (partnerBooks) partnerBooks.addEventListener('change', validateAmount);
     if (supportAmount) supportAmount.addEventListener('input', validateAmount);
 
-    syncPartnerFields();
+    if (phone) phone.addEventListener('input', validatePhones);
+    if (confirmation) confirmation.addEventListener('input', validatePhones);
+
+    syncSupporterType();
     syncDisplayName();
     validateAmount();
   })();
