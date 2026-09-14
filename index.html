@@ -75,6 +75,31 @@
       .site-header,
       .site-header .brand img { transition: none; }
     }
+
+    /* Primeiros leitores — grade que se adapta à quantidade de nomes */
+    .first-readers .readers-grid {
+      list-style: none;
+      margin: 22px 0 0;
+      padding: 0;
+      display: grid;
+      gap: 14px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, max-content));
+      justify-content: center;
+    }
+    .first-readers .reader-card {
+      border: 1px solid rgba(0,0,0,.12);
+      border-radius: 12px;
+      padding: 16px 20px;
+      text-align: center;
+    }
+    .first-readers .reader-card strong { display: block; }
+    .first-readers .reader-card span {
+      display: block;
+      margin-top: 4px;
+      font-size: .88em;
+      opacity: .75;
+    }
+    .first-readers .readers-grid:empty { display: none; }
   </style>
 </head>
 <body>
@@ -357,9 +382,9 @@
     data-book-price  = valor da pré-venda
     data-updated     = data mostrada no topo do painel
 -->
-<div class="goalchart" data-goal="5946.88" data-raised="395" data-supporters="4" data-preorders="3" data-preorder-target="110" data-book-price="60" data-updated="04/09/2026" aria-labelledby="goalchart-title">
+<div class="goalchart" data-goal="5946.88" data-raised="395" data-supporters="6" data-preorders="3" data-preorder-target="110" data-book-price="60" data-updated="14/09/2026" aria-labelledby="goalchart-title">
 <div class="goalchart-head">
-<p class="goalchart-kicker">Meta da 1ª edição <i>·</i> atualizado em <b id="gc-updated">04/09/2026</b>
+<p class="goalchart-kicker">Meta da 1ª edição <i>·</i> atualizado em <b id="gc-updated">14/09/2026</b>
 </p>
 <h3 id="goalchart-title">Ainda faltam <b id="gc-remaining">R$ 5.551,88</b> para o livro entrar na gráfica.</h3>
 </div>
@@ -461,6 +486,12 @@
     <h2 id="primeiros-leitores-titulo">Primeiros leitores da 1ª edição</h2>
     <p>Quem reservar um exemplar poderá autorizar a divulgação do nome nesta seção, registrando sua participação entre os primeiros leitores da primeira edição de <strong>Muiraquitã</strong>.</p>
   </div>
+  <ul class="readers-grid" aria-label="Primeiros leitores com divulgação autorizada">
+    <li class="reader-card">
+      <strong>Ernesto Santos de Escobar</strong>
+      <span>Exemplar reservado na pré-venda</span>
+    </li>
+  </ul>
 </section>
 <section class="support section" id="apoio">
 <div class="support-intro">
@@ -522,12 +553,12 @@
 </label>
 <label>Valor enviado pelo Pix<input id="support-amount" type="number" min="1" step="0.01" placeholder="R$" required="" name="Valor enviado"/>
 </label>
-<label>Autoriza a divulgação do seu nome no site, inclusive na seção “Primeiros leitores da 1ª edição”?<select name="Autorização para divulgação do nome" required="">
+<label>Autoriza a divulgação do seu nome no site, inclusive na seção “Primeiros leitores da 1ª edição”?<select id="allow-name" name="Autorização para divulgação do nome" required="">
 <option value="sim" selected="">Sim, autorizo a divulgação do meu nome</option>
 <option value="nao">Não, prefiro permanecer anônimo</option>
 </select>
 </label>
-<label>Como deseja que seu nome apareça no site? <small>Preencha somente se autorizou a divulgação</small>
+<label id="display-name-field">Como deseja que seu nome apareça no site? <small>Preencha somente se autorizou a divulgação</small>
 <input type="text" name="Nome para divulgação no site" placeholder="Ex.: Maria Silva"/>
 </label>
 <input type="hidden" name="Tipo de arquivo" value="Comprovante do Pix"/>
@@ -718,6 +749,21 @@
       window.addEventListener('resize', onScroll, { passive: true });
       syncHeader();
     }
+  })();
+</script>
+<script>
+  (function () {
+    var sel = document.getElementById('allow-name');
+    var campo = document.getElementById('display-name-field');
+    if (!sel || !campo) return;
+    function alterna() {
+      var mostrar = sel.value === 'sim';
+      campo.hidden = !mostrar;
+      var inp = campo.querySelector('input');
+      if (inp && !mostrar) inp.value = '';
+    }
+    sel.addEventListener('change', alterna);
+    alterna();
   })();
 </script>
 </body>
