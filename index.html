@@ -168,6 +168,12 @@
       min-width: 0;
     }
     .partner-fields[hidden] { display: none !important; }
+
+    /* Campos pessoais não aparecem quando a modalidade é Parceiro Cultural */
+    #individual-name-authorization[hidden],
+    #display-name-field[hidden] {
+      display: none !important;
+    }
     .partner-note {
       margin: -4px 0 18px;
       font-size: .86rem;
