@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Autorização de divulgação do nome — Muiraquitã</title>
+<meta name="robots" content="noindex, nofollow"/>
+<meta name="description" content="Página para quem apoiou o Muiraquitã autorizar, ou não, a divulgação do nome no site."/>
+
+<meta property="og:title" content="Muiraquitã — autorização de divulgação do nome"/>
+<meta property="og:description" content="Você apoiou a primeira edição. Quer que seu nome apareça no site?"/>
+<meta property="og:image" content="livro-mockup.webp"/>
+<meta property="og:type" content="website"/>
+
+<link rel="stylesheet" href="styles.css"/>
+
+<style>
+  :root{
+    --auth-bg:      #0b0d0c;
+    --auth-ink:     #eee7d8;
+    --auth-line:    rgba(238,231,216,.22);
+    --auth-soft:    rgba(238,231,216,.65);
+  }
+  body.auth-page{
+    margin:0;
+    min-height:100vh;
+    background: var(--auth-bg);
+    color: var(--auth-ink);
+    font-family: Georgia, "Times New Roman", serif;
+    line-height:1.6;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:28px 18px 56px;
+  }
+  .auth-card{
+    width:100%;
+    max-width:560px;
+  }
+  .auth-brand{
+    text-align:center;
+    margin-bottom:26px;
+  }
+  .auth-brand img.logo{
+    width:150px;
+    height:auto;
+    display:inline-block;
+  }
+  .auth-cover{
+    display:block;
+    width:100%;
+    max-width:300px;
+    height:auto;
+    margin:0 auto 26px;
+    border-radius:10px;
+  }
+  .auth-card h1{
+    font-size:1.45rem;
+    line-height:1.3;
+    margin:0 0 12px;
+    text-align:center;
+  }
+  .auth-card .lead{
+    color:var(--auth-soft);
+    text-align:center;
+    margin:0 0 28px;
+    font-size:1rem;
+  }
+  .auth-form label{
+    display:block;
+    margin-bottom:18px;
+    font-size:.95rem;
+  }
+  .auth-form small{
+    display:block;
+    color:var(--auth-soft);
+    font-weight:400;
+    margin-top:3px;
+    font-size:.82rem;
+  }
+  .auth-form input[type=text],
+  .auth-form input[type=tel],
+  .auth-form select{
+    width:100%;
+    box-sizing:border-box;
+    margin-top:7px;
+    padding:12px 13px;
+    border:1px solid var(--auth-line);
+    border-radius:8px;
+    background:rgba(255,255,255,.04);
+    color:var(--auth-ink);
+    font:inherit;
+    font-size:1rem;
+  }
+  .auth-form input:focus,
+  .auth-form select:focus{
+    outline:2px solid rgba(238,231,216,.5);
+    outline-offset:1px;
+  }
+  .auth-form select option{ color:#111; }
+  .auth-submit{
+    width:100%;
+    padding:14px;
+    border:0;
+    border-radius:8px;
+    background:var(--auth-ink);
+    color:var(--auth-bg);
+    font:inherit;
+    font-size:1rem;
+    font-weight:700;
+    cursor:pointer;
+  }
+  .auth-fine{
+    text-align:center;
+    margin:14px 0 0;
+    font-size:.85rem;
+    color:var(--auth-soft);
+  }
+  .auth-back{
+    display:block;
+    text-align:center;
+    margin-top:22px;
+    color:var(--auth-soft);
+    font-size:.88rem;
+  }
+  .honey{
+    position:absolute;
+    left:-9999px;
+    opacity:0;
+    height:0;
+    width:0;
+  }
+</style>
+</head>
+
+<body class="auth-page">
+<main class="auth-card">
+
+  <div class="auth-brand">
+    <img class="logo" src="logotipo.webp" alt="Muiraquitã"/>
+  </div>
+
+  <img class="auth-cover" src="livro-mockup.webp" alt="Muiraquitã — O Fragmento do Sertão, primeira edição"/>
+
+  <h1>Seu nome no site</h1>
+  <p class="lead">Você ajudou a primeira edição de <strong>Muiraquitã</strong> a existir. Se quiser, seu nome pode ficar registrado no site — e, se preferir não aparecer, também está tudo certo.</p>
+
+  <form class="auth-form"
+        action="https://formsubmit.co/contato@universomuiraquita.com.br"
+        method="POST">
+
+    <input type="text" class="honey" tabindex="-1" autocomplete="off" name="_honey"/>
+    <input type="hidden" name="_subject" value="Autorização de divulgação do nome — Muiraquitã"/>
+    <input type="hidden" name="_captcha" value="false"/>
+    <input type="hidden" name="_template" value="table"/>
+
+    <label>Seu nome completo
+      <small>Para eu conferir com o apoio que chegou</small>
+      <input type="text" name="Nome completo" required/>
+    </label>
+
+    <label>WhatsApp ou telefone
+      <small>O mesmo usado no Pix, se possível</small>
+      <input type="tel" inputmode="tel" name="WhatsApp ou telefone" placeholder="(77) 99999-9999" required/>
+    </label>
+
+    <label>Você autoriza a divulgação do seu nome no site?
+      <select id="auth-allow" name="Autorização" required>
+        <option value="" disabled selected>Selecione uma opção</option>
+        <option value="sim">Sim, pode divulgar meu nome</option>
+        <option value="nao">Não, prefiro não aparecer</option>
+      </select>
+    </label>
+
+    <label id="auth-display" hidden>Como você quer que apareça?
+      <small>Nome, primeiro e último nome, ou apelido — do jeito que preferir</small>
+      <input type="text" name="Nome para divulgação" placeholder="Ex.: Maria Silva"/>
+    </label>
+
+    <button class="auth-submit" type="submit">Enviar resposta</button>
+    <p class="auth-fine">Nada é publicado sem esta autorização.</p>
+  </form>
+
+  <a class="auth-back" href="./">← Voltar para o site do Muiraquitã</a>
+
+</main>
+
+<script>
+(function () {
+  var sel = document.getElementById('auth-allow');
+  var campo = document.getElementById('auth-display');
+  if (!sel || !campo) return;
+  function alterna() {
+    var mostrar = sel.value === 'sim';
+    campo.hidden = !mostrar;
+    var inp = campo.querySelector('input');
+    if (inp) {
+      if (mostrar) { inp.required = true; }
+      else { inp.required = false; inp.value = ''; }
+    }
+  }
+  sel.addEventListener('change', alterna);
+  alterna();
+})();
+</script>
+</body>
+</html>
