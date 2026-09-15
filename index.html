@@ -76,6 +76,29 @@
       .site-header .brand img { transition: none; }
     }
 
+    /* Condições completas da parceria — recolhidas dentro da pergunta */
+    .faq-list .faq-nested {
+      margin-top: 14px;
+      padding-left: 14px;
+      border-left: 2px solid rgba(238, 231, 216, .16);
+    }
+    .faq-list .faq-nested > summary {
+      font-size: .9rem;
+      opacity: .8;
+      cursor: pointer;
+    }
+
+    /* Nenhuma imagem do site pode ser esticada */
+    .book-cover,
+    .hero-book img,
+    .presale-book img,
+    .character-card img,
+    .world-image img,
+    .schools-art img,
+    .objects-track img {
+      object-fit: contain;
+    }
+
     /* Primeiros leitores — grade que se adapta à quantidade de nomes */
     .first-readers .readers-grid {
       list-style: none;
@@ -295,8 +318,8 @@
 </a>
 <nav aria-label="Navegação principal">
 <a href="#livro">O livro</a>
-<a href="#escolas">Escolas</a>
 <a href="#pre-venda">Campanha</a>
+<a href="#escolas">Escolas</a>
 <a class="nav-cta" href="#apoio">Apoiar</a>
 </nav>
 </header>
@@ -910,12 +933,25 @@
 <summary>Qual é a diferença entre pré-venda e apoio?</summary>
 <p>A pré-venda custa R$ 60,00 e reserva um exemplar da 1ª edição em seu nome. O apoio voluntário pode ser de qualquer valor e ajuda a pagar a impressão, mas não reserva livro. A retirada em Cotegipe é gratuita; para outras cidades, o frete será calculado separadamente.</p>
 </details>
+<details>
+<summary>Como funciona a entrega e o frete?</summary>
+<p>Em Cotegipe a retirada é gratuita e combinada diretamente com o autor. Para outras cidades, o envio é feito pelos Correios e o <strong>frete é calculado à parte</strong>, conforme o CEP, sendo informado e confirmado com você antes do pagamento do envio.</p>
+<p>Os livros só são despachados depois que a impressão terminar. A gráfica estima de 10 a 15 dias úteis para produzir os exemplares após a aprovação final, e o prazo dos Correios se soma a esse período. Você será avisado quando o seu exemplar for postado.</p>
+</details>
+<details>
+<summary>Como levar Muiraquitã para uma escola ou biblioteca?</summary>
+<p>Entre em contato pelo WhatsApp. Escolas, bibliotecas, professores, comerciantes e apoiadores podem conversar diretamente com o autor.</p>
+</details>
 <details id="faq-parceiros-culturais">
 <summary>Como funciona para empresas e marcas parceiras?</summary>
-<p>Empresas, comércios, MEIs, profissionais autônomos, marcas e iniciativas podem apoiar a primeira edição de <strong>Muiraquitã</strong> como <strong>Parceiros Culturais</strong>. Após a confirmação do apoio e da autorização de uso da marca, o parceiro poderá ser divulgado na seção “Parceiros culturais da 1ª edição”, com logotipo, nome e identificação padronizada. O tamanho e a apresentação das marcas seguem o mesmo padrão visual para preservar a identidade editorial do site e evitar diferenciação excessiva entre parceiros.</p>
+<p>Empresas, comércios, MEIs, profissionais autônomos, marcas e iniciativas podem apoiar a primeira edição como <strong>Parceiros Culturais</strong>. Confirmado o apoio e a autorização de uso da marca, o parceiro é exibido na seção “Parceiros culturais da 1ª edição”, com logotipo e nome, <strong>todos no mesmo tamanho e no mesmo formato</strong>.</p>
+<p>O apoio contribui para a produção e a circulação da edição, e <strong>não concede participação em direitos autorais, decisões editoriais ou receitas futuras</strong>.</p>
+<details class="faq-nested">
+<summary>Ler as condições completas da parceria</summary>
 <p>O apoio cultural contribui para os custos de produção e circulação da primeira edição, mas não concede participação em direitos autorais, propriedade intelectual, conteúdo da obra, decisões editoriais ou receitas futuras. Também não cria exclusividade comercial, direito a publicidade ilimitada, presença em capa ou miolo do livro, nem obrigação de publicações adicionais em redes sociais, salvo acordo específico feito separadamente e por escrito.</p>
 <p>O parceiro deve fornecer material oficial da marca e declarar que possui autorização para seu uso. A presença da marca identifica apoio cultural à edição e não representa endosso do autor a todos os produtos, serviços ou posicionamentos do parceiro. O projeto poderá recusar ou retirar uma parceria em caso de uso indevido do nome de <strong>Muiraquitã</strong>, informação falsa, conteúdo ilegal ou situação que comprometa de forma relevante a integridade do projeto.</p>
 <p>A identificação como Parceiro Cultural ficará vinculada ao registro público da primeira edição no site enquanto essa página histórica estiver disponível. Alterações de nome, logotipo ou link poderão ser solicitadas posteriormente. A parceria não garante número de acessos, vendas, seguidores ou qualquer retorno comercial específico e não constitui investimento, sociedade ou aquisição de participação no projeto.</p>
+</details>
 </details>
 <details>
 <summary>O apoio como Parceiro Cultural inclui um exemplar do livro?</summary>
@@ -924,10 +960,6 @@
 <details>
 <summary>Existe valor mínimo para ser Parceiro Cultural?</summary>
 <p>As condições podem variar conforme a campanha e serão confirmadas antes da divulgação da marca. O envio do formulário, por si só, não garante a publicação do logotipo: a parceria passa a valer após a confirmação do apoio, dos dados enviados e da autorização de uso da marca.</p>
-</details>
-<details>
-<summary>Como levar Muiraquitã para uma escola ou biblioteca?</summary>
-<p>Entre em contato pelo WhatsApp. Escolas, bibliotecas, professores, comerciantes e apoiadores podem conversar diretamente com o autor.</p>
 </details>
 </div>
 </section>
