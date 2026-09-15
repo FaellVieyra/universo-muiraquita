@@ -88,16 +88,21 @@
       cursor: pointer;
     }
 
-    /* Nenhuma imagem do site pode ser esticada */
-    .book-cover,
-    .hero-book img,
-    .presale-book img,
-    .character-card img,
-    .world-image img,
-    .schools-art img,
-    .objects-track img {
-      object-fit: contain;
-    }
+    /* Ajuste correto das imagens */
+.book-cover,
+.hero-book img,
+.presale-book img,
+.world-image img,
+.objects-track img {
+  object-fit: contain;
+}
+
+.character-card img,
+.schools-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
     /* Primeiros leitores — grade que se adapta à quantidade de nomes */
     .first-readers .readers-grid {
