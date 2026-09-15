@@ -87,7 +87,8 @@
       justify-content: center;
     }
     .first-readers .reader-card {
-      border: 1px solid rgba(0,0,0,.12);
+      border: 1px solid rgba(238, 231, 216, .16);
+      background: rgba(255,255,255,.015);
       border-radius: 12px;
       padding: 16px 20px;
       text-align: center;
@@ -157,6 +158,34 @@
     .cultural-partners .partner-card.is-invite {
       border-style: solid;
     }
+    .cultural-partners .partner-card.is-slot {
+      border-style: dashed;
+      border-color: rgba(238, 231, 216, .22);
+      background: transparent;
+    }
+    .cultural-partners .partner-card.is-slot strong,
+    .cultural-partners .partner-card.is-slot span {
+      opacity: .45;
+    }
+    .cultural-partners .slot-frame {
+      width: 100%;
+      max-width: 170px;
+      border: 1px dashed rgba(238, 231, 216, .22);
+      border-radius: 8px;
+    }
+    .cultural-partners .slot-frame span {
+      font-size: .72rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      opacity: .4;
+    }
+    .cultural-partners .partner-slots-note {
+      max-width: 620px;
+      margin: 18px auto 0;
+      text-align: center;
+      font-size: .9rem;
+      opacity: .72;
+    }
     .cultural-partners .partner-card.is-invite .partner-mark {
       font-size: 2.1rem;
       line-height: 1;
@@ -167,8 +196,6 @@
       margin-top: 4px;
       min-width: 0;
     }
-    .partner-fields[hidden] { display: none !important; }
-
     /* Campos pessoais não aparecem quando a modalidade é Parceiro Cultural */
     #individual-name-authorization[hidden],
     #display-name-field[hidden] {
@@ -438,70 +465,6 @@
 </figure>
 </div>
 </section>
-<section class="schools section" id="escolas">
-<div class="schools-art">
-<img src="escolas-corredor.png" alt="Círculo de pedras em corredor rochoso com pinturas rupestres"/>
-</div>
-<div class="schools-copy">
-<p class="eyebrow">Leitura, território e pertencimento</p>
-<h2>Muiraquitã nas escolas</h2>
-<p>Dois materiais gratuitos ajudam o professor a transformar o Livro 1 em percurso de leitura, produção artística e pesquisa. O Ensino Médio recebe um projeto próprio, mais aprofundado e próximo das práticas de institutos e universidades.</p>
-<ul>
-<li>Roteiros completos, prontos para adaptar ao planejamento</li>
-<li>Perguntas para os 30 capítulos e fichas reproduzíveis</li>
-<li>Atividades interdisciplinares, pesquisa e comunicação científica</li>
-<li>Possibilidade de encontro e conversa com o autor</li>
-</ul>
-<div class="educator-portal" aria-labelledby="materiais-educadores">
-<div class="educator-heading">
-<span>Materiais gratuitos para educadores</span>
-<h3 id="materiais-educadores">Escolha o percurso da sua turma</h3>
-<p>Baixe em PDF para usar agora ou em Word para editar e inserir os dados da escola.</p>
-</div>
-<div class="educator-cards">
-<article class="educator-card">
-<div class="educator-card-top">
-<span>Caderno geral</span>
-<b>8 semanas</b>
-</div>
-<h4>Leitura e criação · Livro 1</h4>
-<p>Para o 9º ano e Ensino Médio, adaptável ao 8º. Inclui perguntas dos 30 capítulos, oficinas, rubrica e fichas de leitura.</p>
-<div class="educator-tags">
-<span>30 capítulos</span>
-<span>26 páginas</span>
-<span>Interdisciplinar</span>
-</div>
-<div class="educator-buttons">
-<a class="educator-button primary" href="caderno-pedagogico-muiraquita-livro1.pdf" download="">Baixar PDF</a>
-<a class="educator-button secondary" href="caderno-pedagogico-muiraquita-livro1.docx" download="">Baixar Word</a>
-</div>
-</article>
-<article class="educator-card featured">
-<div class="educator-card-top">
-<span>Ensino Médio · destaque</span>
-<b>10 semanas</b>
-</div>
-<h4>Projeto interdisciplinar e iniciação científica</h4>
-<p>Percurso avançado com problema de pesquisa, fontes, memória oral, ética, oficinas, pôster científico, rubrica e fichas prontas.</p>
-<div class="educator-tags">
-<span>22 páginas</span>
-<span>Pesquisa</span>
-<span>Feira científica</span>
-</div>
-<div class="educator-buttons">
-<a class="educator-button primary" href="muiraquita-ensino-medio-projeto-interdisciplinar.pdf" download="">Baixar PDF</a>
-<a class="educator-button secondary" href="muiraquita-ensino-medio-projeto-interdisciplinar.docx" download="">Baixar Word</a>
-</div>
-</article>
-</div>
-<a class="educator-contact" href="https://wa.me/5577997026139?text=Ol%C3%A1%21%20Sou%20profissional%20da%20educa%C3%A7%C3%A3o%20e%20gostaria%20de%20solicitar%20uma%20proposta%20de%20exemplares%20do%20Muiraquit%C3%A3%20para%20minha%20escola%20ou%20biblioteca." target="_blank" rel="noreferrer">
-<span>Projeto de leitura para escola ou biblioteca</span>
-<strong>Solicitar proposta de exemplares →</strong>
-</a>
-</div>
-<p class="school-note">Os materiais são gratuitos e não reproduzem a obra. Para desenvolver os percursos completos, recomenda-se que cada estudante, dupla ou pequeno grupo tenha acesso regular ao Livro 1.</p>
-</div>
-</section>
 <section class="presale" id="pre-venda">
 <div class="presale-book">
 <img src="livro-mockup.webp" alt="Livro Muiraquitã em perspectiva"/>
@@ -554,7 +517,7 @@
 <div class="gc-foot">
 <div class="gc-stats">
 <div class="gc-count">
-<strong id="gc-supporters">4</strong>
+<strong id="gc-supporters">6</strong>
 <span>apoios<br/>voluntários</span>
 </div>
 <div class="gc-count gc-preorders">
@@ -651,11 +614,22 @@
     <h2 id="parceiros-culturais-titulo">Parceiros culturais da 1ª edição</h2>
     <p>Marcas, empresas, profissionais e iniciativas que apoiam a realização da primeira edição de <strong>Muiraquitã</strong> e contribuem para fortalecer a produção cultural no Oeste da Bahia.</p>
   </div>
+  <p class="partner-slots-note">Todo parceiro aparece no mesmo tamanho e no mesmo formato, em ordem de confirmação. Os espaços abaixo mostram exatamente como e onde a marca será exibida.</p>
   <div class="partner-grid" aria-label="Parceiros culturais da primeira edição">
+    <article class="partner-card is-slot" aria-label="Espaço disponível para marca parceira">
+      <div class="partner-logo slot-frame"><span>logotipo</span></div>
+      <strong>Espaço disponível</strong>
+      <span>Nome da marca e identificação como Parceiro Cultural.</span>
+    </article>
+    <article class="partner-card is-slot" aria-label="Espaço disponível para marca parceira">
+      <div class="partner-logo slot-frame"><span>logotipo</span></div>
+      <strong>Espaço disponível</strong>
+      <span>Nome da marca e identificação como Parceiro Cultural.</span>
+    </article>
     <article class="partner-card is-invite">
       <div class="partner-mark" aria-hidden="true">+</div>
       <strong>Sua marca pode apoiar esta edição</strong>
-      <span>As marcas confirmadas serão exibidas aqui em formato padronizado, com logotipo, nome e identificação como Parceiro Cultural.</span>
+      <span>As marcas confirmadas ocupam um dos espaços ao lado, em formato padronizado.</span>
       <a class="button ghost" href="#apoio">Conhecer a parceria</a>
     </article>
   </div>
@@ -838,6 +812,70 @@
 <a class="whatsapp-fallback" href="https://wa.me/5577997026139?text=Ol%C3%A1%21%20Realizei%20uma%20pr%C3%A9-venda%20ou%20apoio%20ao%20projeto%20Muiraquit%C3%A3%20e%20vou%20enviar%20o%20comprovante." target="_blank" rel="noreferrer">Não conseguiu enviar? Confirmar pelo WhatsApp →</a>
 </form>
 </section>
+<section class="schools section" id="escolas">
+<div class="schools-art">
+<img src="escolas-corredor.png" alt="Círculo de pedras em corredor rochoso com pinturas rupestres"/>
+</div>
+<div class="schools-copy">
+<p class="eyebrow">Leitura, território e pertencimento</p>
+<h2>Muiraquitã nas escolas</h2>
+<p>Dois materiais gratuitos ajudam o professor a transformar o Livro 1 em percurso de leitura, produção artística e pesquisa. O Ensino Médio recebe um projeto próprio, mais aprofundado e próximo das práticas de institutos e universidades.</p>
+<ul>
+<li>Roteiros completos, prontos para adaptar ao planejamento</li>
+<li>Perguntas para os 30 capítulos e fichas reproduzíveis</li>
+<li>Atividades interdisciplinares, pesquisa e comunicação científica</li>
+<li>Possibilidade de encontro e conversa com o autor</li>
+</ul>
+<div class="educator-portal" aria-labelledby="materiais-educadores">
+<div class="educator-heading">
+<span>Materiais gratuitos para educadores</span>
+<h3 id="materiais-educadores">Escolha o percurso da sua turma</h3>
+<p>Baixe em PDF para usar agora ou em Word para editar e inserir os dados da escola.</p>
+</div>
+<div class="educator-cards">
+<article class="educator-card">
+<div class="educator-card-top">
+<span>Caderno geral</span>
+<b>8 semanas</b>
+</div>
+<h4>Leitura e criação · Livro 1</h4>
+<p>Para o 9º ano e Ensino Médio, adaptável ao 8º. Inclui perguntas dos 30 capítulos, oficinas, rubrica e fichas de leitura.</p>
+<div class="educator-tags">
+<span>30 capítulos</span>
+<span>26 páginas</span>
+<span>Interdisciplinar</span>
+</div>
+<div class="educator-buttons">
+<a class="educator-button primary" href="caderno-pedagogico-muiraquita-livro1.pdf" download="">Baixar PDF</a>
+<a class="educator-button secondary" href="caderno-pedagogico-muiraquita-livro1.docx" download="">Baixar Word</a>
+</div>
+</article>
+<article class="educator-card featured">
+<div class="educator-card-top">
+<span>Ensino Médio · destaque</span>
+<b>10 semanas</b>
+</div>
+<h4>Projeto interdisciplinar e iniciação científica</h4>
+<p>Percurso avançado com problema de pesquisa, fontes, memória oral, ética, oficinas, pôster científico, rubrica e fichas prontas.</p>
+<div class="educator-tags">
+<span>22 páginas</span>
+<span>Pesquisa</span>
+<span>Feira científica</span>
+</div>
+<div class="educator-buttons">
+<a class="educator-button primary" href="muiraquita-ensino-medio-projeto-interdisciplinar.pdf" download="">Baixar PDF</a>
+<a class="educator-button secondary" href="muiraquita-ensino-medio-projeto-interdisciplinar.docx" download="">Baixar Word</a>
+</div>
+</article>
+</div>
+<a class="educator-contact" href="https://wa.me/5577997026139?text=Ol%C3%A1%21%20Sou%20profissional%20da%20educa%C3%A7%C3%A3o%20e%20gostaria%20de%20solicitar%20uma%20proposta%20de%20exemplares%20do%20Muiraquit%C3%A3%20para%20minha%20escola%20ou%20biblioteca." target="_blank" rel="noreferrer">
+<span>Projeto de leitura para escola ou biblioteca</span>
+<strong>Solicitar proposta de exemplares →</strong>
+</a>
+</div>
+<p class="school-note">Os materiais são gratuitos e não reproduzem a obra. Para desenvolver os percursos completos, recomenda-se que cada estudante, dupla ou pequeno grupo tenha acesso regular ao Livro 1.</p>
+</div>
+</section>
 <section class="author section" id="autor">
 <div>
 <p class="eyebrow">Quem escreve</p>
@@ -988,31 +1026,8 @@
       });
     }
 
-    var phone = document.getElementById('contact-phone');
-    var confirmation = document.getElementById('confirm-phone');
-    if (phone && confirmation) {
-      var digits = function (value) { return value.replace(/\D/g, ''); };
-      var validatePhones = function () {
-        var different = digits(phone.value) !== digits(confirmation.value);
-        confirmation.setCustomValidity(different ? 'Os números estão diferentes. Confira e digite novamente.' : '');
-      };
-      phone.addEventListener('input', validatePhones);
-      confirmation.addEventListener('input', validatePhones);
-    }
-
-    var supportKind = document.getElementById('support-kind');
-    var supportAmount = document.getElementById('support-amount');
-    if (supportKind && supportAmount) {
-      var validateAmount = function () {
-        var isPreorder = supportKind.value === 'pre-venda';
-        var amount = Number(supportAmount.value) || 0;
-        supportAmount.setCustomValidity(isPreorder && amount < 60
-          ? 'A pré-venda exige o pagamento mínimo de R$ 60,00 por exemplar.'
-          : '');
-      };
-      supportKind.addEventListener('change', validateAmount);
-      supportAmount.addEventListener('input', validateAmount);
-    }
+    // A validação de telefone e de valor fica toda no segundo script,
+    // porque só ele conhece os modos pessoa física e empresa.
 
     var header = document.querySelector('.site-header');
     if (header) {
