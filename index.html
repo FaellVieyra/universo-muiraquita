@@ -1114,6 +1114,7 @@
       if (!container) return;
       Array.prototype.forEach.call(container.querySelectorAll(selector), function (field) {
         field.required = active;
+        field.disabled = !active;
         if (!active) {
           if (field.type === 'checkbox' || field.type === 'radio') field.checked = false;
           else if (field.tagName === 'SELECT') field.selectedIndex = 0;
@@ -1131,6 +1132,10 @@
       var input = displayNameField.querySelector('input');
       if (input) {
         input.required = show;
+        // disabled impede que o campo seja enviado. Só esconder não basta:
+        // campo oculto continua indo no POST e sujaria o registro de quem
+        // escolheu não divulgar o nome.
+        input.disabled = !show;
         if (!show) input.value = '';
       }
     }
@@ -1149,6 +1154,7 @@
 
       if (allowName) {
         allowName.required = isPerson;
+        allowName.disabled = !isPerson;
         if (!isPerson) allowName.value = '';
       }
 
