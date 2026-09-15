@@ -106,7 +106,7 @@
       padding: 0;
       display: grid;
       gap: 14px;
-      grid-template-columns: repeat(auto-fit, minmax(240px, max-content));
+      grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), max-content));
       justify-content: center;
     }
     .first-readers .reader-card {
@@ -117,10 +117,15 @@
       text-align: center;
     }
     .first-readers .reader-card strong { display: block; }
+    .first-readers .reader-card strong {
+      font-size: 1.08rem;
+      line-height: 1.35;
+    }
     .first-readers .reader-card span {
       display: block;
       margin-top: 4px;
-      font-size: .88em;
+      font-size: .92rem;
+      line-height: 1.5;
       opacity: .75;
     }
     .first-readers .readers-grid:empty { display: none; }
@@ -197,10 +202,10 @@
       border-radius: 8px;
     }
     .cultural-partners .slot-frame span {
-      font-size: .72rem;
-      letter-spacing: .14em;
+      font-size: .82rem;
+      letter-spacing: .1em;
       text-transform: uppercase;
-      opacity: .4;
+      opacity: .5;
     }
     .cultural-partners .partner-slots-note {
       max-width: 620px;
@@ -275,8 +280,15 @@
     }
 
     @media (max-width: 700px) {
+      .first-readers .readers-grid,
       .cultural-partners .partner-grid {
         grid-template-columns: 1fr;
+      }
+      .first-readers .reader-card {
+        padding: 14px 16px;
+      }
+      .cultural-partners .partner-slots-note {
+        font-size: .88rem;
       }
       .cultural-partners .partner-card {
         min-height: auto;
@@ -609,7 +621,7 @@
   <div class="section-heading">
     <p class="eyebrow">Primeira edição</p>
     <h2 id="primeiros-apoiadores-titulo">Primeiros apoiadores da 1ª edição</h2>
-    <p>Quem participar da campanha poderá autorizar a divulgação do nome nesta seção, registrando sua contribuição para a primeira edição de <strong>Muiraquitã</strong>, seja pela pré-venda ou pelo apoio à impressão.</p>
+    <p>Nomes de quem participou da campanha e autorizou a divulgação, seja pela pré-venda ou pelo apoio à impressão. Quem preferir não aparecer também está registrado — só não publicamente.</p>
   </div>
   <ul class="readers-grid" aria-label="Primeiros apoiadores com divulgação autorizada">
     <li class="reader-card">
@@ -657,11 +669,75 @@
     </article>
   </div>
 </section>
+<section class="schools section" id="escolas">
+<div class="schools-art">
+<img src="escolas-corredor.png" alt="Círculo de pedras em corredor rochoso com pinturas rupestres"/>
+</div>
+<div class="schools-copy">
+<p class="eyebrow">Leitura, território e pertencimento</p>
+<h2>Muiraquitã nas escolas</h2>
+<p>Dois materiais gratuitos ajudam o professor a transformar o Livro 1 em percurso de leitura, produção artística e pesquisa. O Ensino Médio recebe um projeto próprio, mais aprofundado e próximo das práticas de institutos e universidades.</p>
+<ul>
+<li>Roteiros completos, prontos para adaptar ao planejamento</li>
+<li>Perguntas para os 30 capítulos e fichas reproduzíveis</li>
+<li>Atividades interdisciplinares, pesquisa e comunicação científica</li>
+<li>Possibilidade de encontro e conversa com o autor</li>
+</ul>
+<div class="educator-portal" aria-labelledby="materiais-educadores">
+<div class="educator-heading">
+<span>Materiais gratuitos para educadores</span>
+<h3 id="materiais-educadores">Escolha o percurso da sua turma</h3>
+<p>Baixe em PDF para usar agora ou em Word para editar e inserir os dados da escola.</p>
+</div>
+<div class="educator-cards">
+<article class="educator-card">
+<div class="educator-card-top">
+<span>Caderno geral</span>
+<b>8 semanas</b>
+</div>
+<h4>Leitura e criação · Livro 1</h4>
+<p>Para o 9º ano e Ensino Médio, adaptável ao 8º. Inclui perguntas dos 30 capítulos, oficinas, rubrica e fichas de leitura.</p>
+<div class="educator-tags">
+<span>30 capítulos</span>
+<span>26 páginas</span>
+<span>Interdisciplinar</span>
+</div>
+<div class="educator-buttons">
+<a class="educator-button primary" href="caderno-pedagogico-muiraquita-livro1.pdf" download="">Baixar PDF</a>
+<a class="educator-button secondary" href="caderno-pedagogico-muiraquita-livro1.docx" download="">Baixar Word</a>
+</div>
+</article>
+<article class="educator-card featured">
+<div class="educator-card-top">
+<span>Ensino Médio · destaque</span>
+<b>10 semanas</b>
+</div>
+<h4>Projeto interdisciplinar e iniciação científica</h4>
+<p>Percurso avançado com problema de pesquisa, fontes, memória oral, ética, oficinas, pôster científico, rubrica e fichas prontas.</p>
+<div class="educator-tags">
+<span>22 páginas</span>
+<span>Pesquisa</span>
+<span>Feira científica</span>
+</div>
+<div class="educator-buttons">
+<a class="educator-button primary" href="muiraquita-ensino-medio-projeto-interdisciplinar.pdf" download="">Baixar PDF</a>
+<a class="educator-button secondary" href="muiraquita-ensino-medio-projeto-interdisciplinar.docx" download="">Baixar Word</a>
+</div>
+</article>
+</div>
+<a class="educator-contact" href="https://wa.me/5577997026139?text=Ol%C3%A1%21%20Sou%20profissional%20da%20educa%C3%A7%C3%A3o%20e%20gostaria%20de%20solicitar%20uma%20proposta%20de%20exemplares%20do%20Muiraquit%C3%A3%20para%20minha%20escola%20ou%20biblioteca." target="_blank" rel="noreferrer">
+<span>Projeto de leitura para escola ou biblioteca</span>
+<strong>Solicitar proposta de exemplares →</strong>
+</a>
+</div>
+<p class="school-note">Os materiais são gratuitos e não reproduzem a obra. Para desenvolver os percursos completos, recomenda-se que cada estudante, dupla ou pequeno grupo tenha acesso regular ao Livro 1.</p>
+</div>
+</section>
 <section class="support section" id="apoio">
 <div class="support-intro">
 <p class="eyebrow">Pré-venda e apoio voluntário</p>
 <h2>Reserve o seu livro ou ajude a impressão.</h2>
-<p>Na pré-venda, R$ 60,00 reservam um exemplar da primeira edição. Quem desejar apenas fortalecer o projeto também pode contribuir com qualquer quantia, sem reservar livro.</p>
+<p>Faça o Pix, preencha o formulário e anexe o comprovante. O apoio é conferido e registrado em seguida.</p>
 <div class="support-notice">
 <strong>Escolha antes de pagar:</strong> pré-venda por <b class="gc-price-ref">R$ 60,00</b>, com um exemplar reservado, ou apoio voluntário de qualquer valor, sem exemplar. A retirada em Cotegipe é gratuita; para outras cidades, o frete será calculado separadamente.</div>
 <div class="pix-card">
@@ -834,70 +910,6 @@
 <button class="button primary form-submit" type="submit">Enviar dados e comprovante</button>
 <a class="whatsapp-fallback" href="https://wa.me/5577997026139?text=Ol%C3%A1%21%20Realizei%20uma%20pr%C3%A9-venda%20ou%20apoio%20ao%20projeto%20Muiraquit%C3%A3%20e%20vou%20enviar%20o%20comprovante." target="_blank" rel="noreferrer">Não conseguiu enviar? Confirmar pelo WhatsApp →</a>
 </form>
-</section>
-<section class="schools section" id="escolas">
-<div class="schools-art">
-<img src="escolas-corredor.png" alt="Círculo de pedras em corredor rochoso com pinturas rupestres"/>
-</div>
-<div class="schools-copy">
-<p class="eyebrow">Leitura, território e pertencimento</p>
-<h2>Muiraquitã nas escolas</h2>
-<p>Dois materiais gratuitos ajudam o professor a transformar o Livro 1 em percurso de leitura, produção artística e pesquisa. O Ensino Médio recebe um projeto próprio, mais aprofundado e próximo das práticas de institutos e universidades.</p>
-<ul>
-<li>Roteiros completos, prontos para adaptar ao planejamento</li>
-<li>Perguntas para os 30 capítulos e fichas reproduzíveis</li>
-<li>Atividades interdisciplinares, pesquisa e comunicação científica</li>
-<li>Possibilidade de encontro e conversa com o autor</li>
-</ul>
-<div class="educator-portal" aria-labelledby="materiais-educadores">
-<div class="educator-heading">
-<span>Materiais gratuitos para educadores</span>
-<h3 id="materiais-educadores">Escolha o percurso da sua turma</h3>
-<p>Baixe em PDF para usar agora ou em Word para editar e inserir os dados da escola.</p>
-</div>
-<div class="educator-cards">
-<article class="educator-card">
-<div class="educator-card-top">
-<span>Caderno geral</span>
-<b>8 semanas</b>
-</div>
-<h4>Leitura e criação · Livro 1</h4>
-<p>Para o 9º ano e Ensino Médio, adaptável ao 8º. Inclui perguntas dos 30 capítulos, oficinas, rubrica e fichas de leitura.</p>
-<div class="educator-tags">
-<span>30 capítulos</span>
-<span>26 páginas</span>
-<span>Interdisciplinar</span>
-</div>
-<div class="educator-buttons">
-<a class="educator-button primary" href="caderno-pedagogico-muiraquita-livro1.pdf" download="">Baixar PDF</a>
-<a class="educator-button secondary" href="caderno-pedagogico-muiraquita-livro1.docx" download="">Baixar Word</a>
-</div>
-</article>
-<article class="educator-card featured">
-<div class="educator-card-top">
-<span>Ensino Médio · destaque</span>
-<b>10 semanas</b>
-</div>
-<h4>Projeto interdisciplinar e iniciação científica</h4>
-<p>Percurso avançado com problema de pesquisa, fontes, memória oral, ética, oficinas, pôster científico, rubrica e fichas prontas.</p>
-<div class="educator-tags">
-<span>22 páginas</span>
-<span>Pesquisa</span>
-<span>Feira científica</span>
-</div>
-<div class="educator-buttons">
-<a class="educator-button primary" href="muiraquita-ensino-medio-projeto-interdisciplinar.pdf" download="">Baixar PDF</a>
-<a class="educator-button secondary" href="muiraquita-ensino-medio-projeto-interdisciplinar.docx" download="">Baixar Word</a>
-</div>
-</article>
-</div>
-<a class="educator-contact" href="https://wa.me/5577997026139?text=Ol%C3%A1%21%20Sou%20profissional%20da%20educa%C3%A7%C3%A3o%20e%20gostaria%20de%20solicitar%20uma%20proposta%20de%20exemplares%20do%20Muiraquit%C3%A3%20para%20minha%20escola%20ou%20biblioteca." target="_blank" rel="noreferrer">
-<span>Projeto de leitura para escola ou biblioteca</span>
-<strong>Solicitar proposta de exemplares →</strong>
-</a>
-</div>
-<p class="school-note">Os materiais são gratuitos e não reproduzem a obra. Para desenvolver os percursos completos, recomenda-se que cada estudante, dupla ou pequeno grupo tenha acesso regular ao Livro 1.</p>
-</div>
 </section>
 <section class="author section" id="autor">
 <div>
